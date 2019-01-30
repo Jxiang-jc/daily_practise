@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>github为何放弃jQuery</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+
+    <style>
+        .list-group {
+            text-indent: 2em;
+        }
+
+        .list-group li {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+
+        @media (max-width: 750px) {
+            .glyphicon-ok {
+                text-align: right;
+            }
+        }
+
+        @media (min-width: 750px) {
+            .glyphicon-ok {
+                float: right;
+            }
+        }
+
+        /* 滚动监听 */
+        .scrollBox {
+            position: relative;
+        }
+
+        .bs-example {
+            position: relative;
+            padding: 45px 15px 15px;
+            margin: 0 -15px 15px;
+            border-color: #e5e5e5 #eee #eee;
+            border-style: solid;
+            border-width: 1px 0;
+            -webkit-box-shadow: inset 0 3px 6px rgba(0, 0, 0, .05);
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, .05);
+            margin-bottom: 50px;
+        }
+
+        @media (min-width: 768px) {
+            .bs-example {
+                margin-right: 0;
+                margin-left: 0;
+                background-color: #fff;
+                border-color: #ddd;
+                border-width: 1px;
+                border-radius: 4px 4px 0 0;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+            }
+        }
+
+        .bs-example:after {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #959595;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            content: "分析如下:";
+        }
+
+        .scrollspy-example {
+            position: relative;
+            height: 400px;
+            margin-top: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <ul class="list-group compare_group">
+            <li class="list-group-item  ">
+                $(selector)模式可以使用querySelectorAll()来代替
+                <i class="glyphicon glyphicon-ok"></i>
+            </li>
+            <li class="list-group-item ">
+                现在可以使用Element.classList来实现css类名切换
+                <i class="glyphicon glyphicon-ok"></i>
+            </li>
+
+            <li class="list-group-item ">
+                CSS现在支持样式表中而不是在javascript中定义可视动画
+                <i class="glyphicon glyphicon-ok"></i>
+            </li>
+
+            <li class="list-group-item ">
+                现在可以使用Fetch Standard执行$ajax请求
+                <i class="glyphicon glyphicon-ok"></i>
+            </li>
+            <li class="list-group-item ">
+                addEvenListener()接口已经足够稳定, 可以跨平台使用
+                <i class="glyphicon glyphicon-ok"></i>
+            </li>
+            <li class="list-group-item ">
+                我们可以使用轻量级的库来封装事件委托模式
+                <i class="glyphicon glyphicon-ok"></i>
+            </li>
+            <li class="list-group-item ">
+                随着javascript语言的发展, jQuery提供的一些语法糖已经变得多余
+                <i class="glyphicon glyphicon-ok"></i>
+            </li>
+        </ul>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">链式语法不能满足我们想要的编写代码的方式</h3>
+            </div>
+            <div class="panel-body">
+                <pre style="color:#F4606C">
+$('.js-widget')
+    .addClass('is-loading')
+    .show()
+                </pre>
+            </div>
+            <ul class="list-group jq_chain">
+                <li class="list-group-item ">这种语法写起来很简单，但是根据我们的标准，它并不能很好地传达我们的意图。</li>
+                <li class="list-group-item ">作者是否期望在当前页面上有一个或多个 js-widget 元素？</li>
+                <li class="list-group-item ">另外，如果我们更新页面标记并意外遗漏了 js-widget 类名，浏览器是否会抛出异常会告诉我们出了什么问题？</li>
+                <li class="list-group-item ">默认情况下，当没有任何内容与选择器匹配时，jQuery 会跳过整个表达式，但对我们来说，这是一个 bug。</li>
+                <li class="list-group-item">最后，我们开始使用 Flow 来注解类型(Flow 是 Facebook 旗下一个为 JavaScript 进行静态类型检测的检测工具)</li>
+                <li class="list-group-item">以便在构建时执行静态类型检查，并且我们发现，链式语法不适合做静态分析，</li>
+                <li class="list-group-item">因为几乎所有 jQuery 方法返回的结果都是相同的类型。</li>
+            </ul>
+        </div>
+
+        <!-- 滚动监听 -->
+
+        <div class="bs-example" data-example-id="embedded-scrollspy">
+            <nav id="navbar-example2" class="navbar navbar-default navbar-static">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="javascript:void(0)">逐步解耦</a>
+                    </div>
+                    <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+                        <ul class="nav navbar-nav">
+                            <li class=""><a href="#one">No.1</a></li>
+                            <li class=""><a href="#two">No.2</a></li>
+                            <li class=""><a href="#three">No.3</a></li>
+                            <li class=""><a href="#four">No.4</a></li>
+                            <li class=""><a href="#five">No.5</a></li>
+                            <li class=""><a href="#six">No.6</a></li>
+                            <li class=""><a href="#seven">No.7</a></li>
+                            <li class=""><a href="#eight">No.8</a></li>
+                            <li class=""><a href="#nine">No.9</a></li>
+                            <li class=""><a href="#ten">No.10</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example scrollBox">
+                <h4 id="one">No.1</h4>
+                <p>
+                    设定指标，跟踪整一行代码调用 jQuery 的比率，并监控指标走势随时间变化的情况，确保它保持不变或下降，而不是上升。
+                    <img src="./img/No.1.png" class="img-rounded" style="width:850px;">
+                </p>
+
+                <h4 id="two">No.2</h4>
+                <p>
+                    我们不鼓励在任何新代码中导入
+                    jQuery。为了方便自动化，我们创建了eslint-plugin-jquery（https://github.com/dgraham/eslint-plugin-jquery），如果有人试图使用
+                    jQuery 功能，例如$.ajax，CI 检查将会失败。
+                </p>
+
+                <h4 id="three">No.3</h4>
+                <p>
+                    旧代码中存在大量违反 eslint 规则的情况，我们在代码注释中使用特定的 eslint-disable 规则进行了注解。看到这些代码的读者，他们都该知道，这些代码不符合我们当前的编码实践。
+                </p>
+
+                <h4 id="four">No.4</h4>
+                <p>
+                    我们创建了一个拉请求机器人，当有人试图添加新的 eslint-disable 规则时，会对拉取请求留下评论。这样我们就可以尽早参与代码评审，并提出替代方案。
+                </p>
+
+                <h4 id="five">No.5</h4>
+                <p>
+                    很多旧代码使用了 pjax 和 facebox 插件，所以我们在保持它们的接口几乎不变的同时，在内部使用 JS 重新实现它们的逻辑。静态类型检查有助于提升我们进行重构的信心。
+                </p>
+
+                <h4 id="six">No.6</h4>
+                <p>
+                    很多旧代码与 rails-behavior 发生交互，我们的 Ruby on Rails 适配器几乎是“不显眼的”JS，它们将 AJAX 生命周期处理器附加到某些表单上：
+                    <pre style="color:#F4606C">
+// 旧方法
+$(document).on('ajaxSuccess', 'form.js-widget', function(event, xhr, settings, data) {
+    // 将响应数据插入到 DOM 中
+})
+                    </pre>
+                </p>
+
+                <h4 id="seven">No.7</h4>
+                <p>
+                    我们选择触发假的 ajax* 生命周期事件，并保持这些表单像以前一样异步提交内容，而不是立即重写所有调用，只是会在内部使用 fetch()。
+                </p>
+
+                <h4 id="eight">No.8</h4>
+                <p>
+                    我们自己维护了 jQuery 的一个版本，每当发现我们不再需要 jQuery 的某个模块的时候，就会将它从自定义版本中删除，并发布更轻量的版本。例如，在移除了 jQuery 的 CSS
+                    伪选择器之后（如:visible 或:checkbox）我们就可以移除 Sizzle 模块了，当所有的 $.ajax 调用都被 fetch() 替换时，就可以移除 AJAX 模块。<br>
+                    这样做有两个目的：加快 JavaScript 执行速度，同时确保不会有新代码试图使用已移除的功能。
+                </p>
+
+                <h4 id="nine">No.9</h4>
+                <p>
+                    我们根据网站的分析结果尽快放弃对旧版本 Internet Explorer 的支持。每当某个 IE 版本的使用率低于某个阈值时，我们就会停止向它提供 JavaScript
+                    支持，并专注支持更现代的浏览器。尽早放弃对 IE 8 和 IE 9 的支持对于我们来说意味着可以采用很多原生的浏览器功能，否则的话有些功能很难通过 polyfill 来实现。
+                </p>
+
+                <h4 id="ten">No.10</h4>
+                <p>
+                    作为 GitHub.com 前端功能开发新方法的一部分，我们专注于尽可能多地使用常规 HTML，并且逐步添加 JavaScript 行为作为渐进式增强。因此，那些使用 JS 增强的 Web
+                    表单和其他
+                    UI 元素通常也可以在禁用 JavaScript 的浏览器上正常运行。在某些情况下，我们可以完全删除某些遗留的代码，而不需要使用 JS 重写它们
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let compare_group_li = document.querySelectorAll('.compare_group li')
+            let jq_chain_li = document.querySelectorAll('.jq_chain li')
+
+            // querySelectorAll得到的是nodelist, node不是数组, 需要继承或call数组的foreach
+            function call_array(nodelist) { // ,
+                Array.prototype.forEach.call(nodelist, function(item, idx) {
+                    if (idx % 2 === 0) { // 偶数行
+                        item.classList.add('list-group-item-danger')
+                    } else {
+                        item.classList.add('list-group-item-warning')
+                    }
+                })
+            }
+            call_array(jq_chain_li)
+
+            // 第2种遍历nodelist, 原型继承法
+            function inherit(nodelist) {
+                NodeList.prototype.forEach = Array.prototype.forEach
+                nodelist.forEach(function(item, idx) {
+                    if (idx % 2 === 0) { // 偶数行
+                        item.classList.add('list-group-item-info')
+                    } else {
+                        item.classList.add('list-group-item-success')
+                    }
+                })
+            }
+             inherit(compare_group_li)
+
+
+            // 调用滚动监听, 必须用到jq
+            $('.scrollBox').scrollspy({
+                target: '#navbar-example2'
+            })
+
+            // 调用niceScroll, 兼容ie, 但是ie11都不支持箭头函数
+            $('.scrollBox').niceScroll({
+                cursorcolor: "#58BC58", //#CC0071 光标颜色
+                cursoropacitymax: 0.8, //改变不透明度非常光标处于活动状态（scrollabar“可见”状态），范围从1到0
+                touchbehavior: false, //使光标拖动滚动像在台式电脑触摸设备
+                cursorwidth: "5px", //像素光标的宽度
+                cursorborder: "0", // 游标边框css定义
+                cursorborderradius: "5px", //以像素为光标边界半径
+                autohidemode: true //是否隐藏滚动条
+            })
+        })
+    </script>
+</body>
+
+</html>

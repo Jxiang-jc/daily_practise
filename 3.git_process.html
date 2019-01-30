@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4.git的流程</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .title {
+        text-align: center;
+        margin: 10px 0;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .content p {
+        font-size: 16px;
+        line-height: 20px;
+        text-indent: 2em;
+
+    }
+    .content p:nth-child(odd) {
+        background:#f5f5f5;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="title">--------------以下内容旨在解决多人分支时冲突--------------</p>
+        <hr>
+        <div class="content">
+            <p>1. 创建分支: git branch test</p>
+            <p>2. 切换分支: git checkout test</p>
+            <p>3. 在test分支上修改或者是开发</p>
+            <p>4. 在test分支上 git add .</p>
+            <p>5. 在test分支上commit</p>
+            <p>6. 经过测试没问题了, 先回到主分支, git checout master, 然后合并分支 git merge test</p>
+            <p>7.推送到生成环境(也就是github), 一般是在主分支上(或者主分支下有一个总分支)推送 git push origin master</p>
+            <p>8. 如果遇到冲突, 先git pull, </p>
+            <p>9. 解决冲突以后, 在git add. git commit git push 重复以上操作即可</p>
+        </div>
+    </div>
+</body>
+</html>

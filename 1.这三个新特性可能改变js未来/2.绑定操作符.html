@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.绑定操作符::</title>
+</head>
+<body>
+    <h3>:: (双冒号) 暂时还不能被浏览器解析, 因为它是jdk8新特性(java的).可能未来会引入js中</h3>
+    <script>
+        
+    // bind操作符包含了一个新的操作符:: (双冒号), 为demo1两种场景提供了语法糖, 它有两种格式: 二元和一元    
+        
+    // 在使用二元形式时, 绑定操作符将创建一个函数, 将左侧部分与右侧的this绑定在一起
+    let hasOwnProp = Object.prototype.hasOwnProperty
+    let obj = Object.create(null)
+
+    // obj.hasOwnProperty('x') // Type Erroe...
+
+    obj::hasOwnProp("x") // false
+
+    obj.x = 100
+
+    obj::hasOwnProp("x")
+
+    // 在使用一元形式时, 操作符将创建一个绑定到给顶引用基础的函数作为this变量的值
+    cat.paw.addEventListener('click', ::cat.meow)
+    // which desugars to
+    cat.paw.addEventListener('click', cat.meow.bind(cat))
+    
+    // 绑定操作符为创建虚拟方法带了新的机会:
+    // 它非常有用，因为开发人员不需要为了解决一个小问题去下载整个库，从而降低了对生产应用程序包大小的影响。此外，它让库变得更容易扩展。
+    import {map, takeWhile, forEach } from 'iterlib'
+
+    getPlayers()
+    ::map(x => x.character())
+    ::takeWhile(x => x.strength > 100)
+    ::forEach(x => console.log(x))
+    
+    </script>
+</body>
+</html>

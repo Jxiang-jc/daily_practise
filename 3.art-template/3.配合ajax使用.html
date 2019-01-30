@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>配合ajax使用</title>
+</head>
+
+<body>
+
+    <div class="content"></div>
+    <button class="getMore">获取更多</button>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./template-web.js"></script>
+
+    <!-- 原始语法 -->
+    <!-- <script id="test" type="text/html">
+        <% for (var i = 0; i < items.length; i++) {%>
+            <a href="#" class="cover">
+                <img src="<%=items[i].path%>" alt="迪丽热巴" title="迪丽热巴" style="height: 350px;">  
+            </a>
+            <div class="bottom">
+                <a href="#"><%=items[i].name%></a>
+                <div class="rightBox">
+                    <span class="icon-heart">阅读: <%=items[i].star%></span>
+                    <span class="icon-commit">阅读: <%=items[i].message%></span>
+                </div>
+            </div>
+        <% } %>
+    </script> -->
+
+    <!-- 简洁语法 -->
+    <script id="test" type="text/html">
+
+        {{ each items}}
+        <a href="#" class="cover">
+            <img src="{{$value.path}}" alt="迪丽热巴" title="迪丽热巴" style="height: 350px;">  
+        </a>
+        <div class="bottom">
+            {{$index + 1}}<a href="#">{{$value.name}}</a>
+            <div class="rightBox">
+                <span class="icon-heart">阅读: {{$value.star}}</span>
+                <span class="icon-commit">阅读: {{$value.message}}</span>
+            </div>
+        </div>
+        {{ /each}}
+    
+    </script>
+
+    <script>
+        $(function () {
+            // 点击获取更多
+            $('.getMore').click(function () {
+
+                let start = async () => {
+                    try {
+
+                        let data = await getData() // data 得到promise对象成功的返回结果
+
+                        let dataArr = JSON.parse(data) // 转为数组
+
+                        // 包装为js对象
+                        let obj = {
+                            items: dataArr
+                        }
+
+                        // 渲染模板时, 第二个参数一定要是对象
+                        let result = template('test', obj)
+
+                        $('.content').append(result)
+
+                    } catch (err) {
+
+                        console.log(err)
+
+                    }
+
+                }
+                // 如果不这样会报错
+                start()
+
+            })
+
+            function getData() {
+
+                return new Promise(resolve => {
+                    $.ajax({
+                        url: './artTem.php',
+                        success: res => {
+                            console.log(res)
+                            resolve(res)
+                        }
+                    })
+                })
+
+                // 以下这种方法也是可以的
+                // 我的理解是asynv/await 是基于Promise实现的.async函数会隐式地返回一个promise，该promise的reosolve值就是函数return的值.(下面reosolve值就是res)
+                // 老谢的解释是: jq.ajax返回的是promise对象
+                return $.ajax({
+                    url: './artTem.php',
+                    success: res => {
+                        return res
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

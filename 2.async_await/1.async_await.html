@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>async_await.html</title>
+</head>
+<body>
+	<h1>async_await</h1>
+	<script>
+		/*
+			基于Promise对象的async await
+				* async：用于函数声明，表示声明的函数为一个异步函数，这个函数默认返回一个Promise对象（resolve）
+				* await：表示在这里等待promise返回结果（resolve返回）
+					* await必须写在async函数中
+		 */
+		 async function getData(){
+		 	// 这里的return为Promise对象的结果
+		 	// 等效于：resolve(100)
+			return 100
+		}
+		// 原始做法：回调函数
+		// function getData(callback){
+		// 	let result;
+		//  	axios.get('xxxx.php').then(res=>{
+		//  		result = res.data;
+		//  		callback(result);
+		//  	});
+		//  	return result;
+		// }
+		// getData(function(data){
+		// 	console.log(data)
+		// });//undefined
+		// ES6方案：Promise
+		function getData(){
+			return new Promise((resolve,reject)=>{
+			 	let xhr = new XMLHttpRequest();
+			 	xhr.onload = function(){
+					resolve(xhr.responseText);
+			 	}
+			 	xhr.open('get','../3.art-template/artTem.php',true);
+			 	xhr.send()
+				
+			})
+		}
+		getData().then(data=>{
+			data = JSON.parse(data);
+			console.log('then:',data)
+		});
+		// ES7方案：async&await
+		(async ()=>{
+			let data = await getData();//data得到promise对象成功的返回结果
+			
+			data = JSON.parse(data);
+			console.log('await:',data);
+		})();
+	</script>
+</body>
+</html>
