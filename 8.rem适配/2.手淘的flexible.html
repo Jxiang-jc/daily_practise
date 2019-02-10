@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>手淘的flexible</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+</head>
+
+<body>
+    <!-- 
+        cdn引入以下script
+            <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+
+        执行这个JS后，会在元素上增加一个data-dpr属性，以及一个font-size样式。JS会根据不同的设备添加不同的data-dpr值，比如说1、2或者3，同时会给html加上对应的font-size的值，比如说37.5px。
+     -->
+
+     <!-- 
+        
+        1.cssc处理器（scss）
+    
+        @function px2rem($px, $base-font-size: 75px) {
+            @return ($px / $base-font-size) * 1rem;
+        }
+    
+        这里的这个参数$base-font-size: 75px，可以通过(psd文件（设计图）的宽度/10)来计算。假如psd宽750，则$base-font-size为75px。
+
+        使用： psd中量多少就写多少
+        比如量取box宽为190，高为190，则代码：
+        .box {
+            width: px2rem(190px);
+            height: px2rem(190px);
+        }
+
+        2.使用cssrem的插件实现。
+        根据html的fontSize来设置default的值，默认16.
+
+       
+    -->
+
+    <!-- 
+        谢谢作者：http://hjingren.cn/2017/03/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E7%9A%84%E8%A7%A3%E5%86%B3/
+     -->
+</body>
+
+</html>

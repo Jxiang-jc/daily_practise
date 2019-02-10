@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maxium-scale=1, minum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1.移动端适配rem</title>
+</head>
+<body>
+    <!-- 
+        
+        375   clientWidth                    clientWidth
+        --- = -----------   ===>>>   rem =   -----------
+        100     rem                             3.75
+
+        375 相当于iphone6的屏幕宽度， 而我们的设计图纸一般是2倍图，（750），因此需要把量得尺寸再除以2， 当然还有一种办法是，直接调整viewport， 使其设置成设备宽度的2倍
+        <meta name="viewport" content="initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no">
+     -->
+
+     <!-- 这种方法呢， 需要我们配置meta，不过也比较好理解 -->
+    <script>
+        /* 
+        *  computed_rem 计算rem
+        *  @params picture_width: 设计图的宽度 number ( 750 )
+        *  @params rem_width    : 使用的rem宽度 number ( 100 ) 
+        *  return void
+        */
+        const computed_rem = (picture_width = 750, rem_width = 100) => {
+            let html = document.documentElement
+
+            html.style.fontSize = html.clientWidth / (picture_width / (2 * rem_width)) + 'px'
+
+            window.onresize = () => {
+                let html = document.documentElement
+
+                html.style.fontSize = html.clientWidth / (picture_width / (2 * rem_width)) + 'px'
+            }
+        }    
+
+        export default computed_rem
+        
+    </script>
+</body>
+</html>
