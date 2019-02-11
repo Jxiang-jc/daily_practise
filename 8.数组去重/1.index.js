@@ -1,10 +1,10 @@
-let arr = [1, 3, 1, 4, 1, 5, 6, 3, 1, 2, 10]
+let arr = [1, 3, 1, 4, 1, 5, 6, 3, 1, 2, 10, 15]
 
 // ES6 set
 function unique(array) {
     return Array.from(new Set(array))
 
-    // return [...new Set(arr)] 更加简洁
+    // return [... new Set(arr)] 
 }
 
 console.log('unique: ', unique(arr))
