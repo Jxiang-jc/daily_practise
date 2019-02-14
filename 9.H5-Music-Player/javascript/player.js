@@ -247,7 +247,7 @@ class PlayerCreator {
 
     // 更改按钮样式
     renderPlayMode () {
-        let _classes = ['loop', 'random', 'single']
+        let _classes = ['loop', 'random', 'single'] // 这里可以优化, 因为字体图标这些属于常量, 可以单独提取一个文件夹出来, 然后引入, 在使用
         let _o_i = this.$mode.$el.find('i')
 
         // prop 改一些标签的自有属性 attr改一些标签的自定义属性
