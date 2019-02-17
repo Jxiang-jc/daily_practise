@@ -20,7 +20,7 @@ class Player {
     //     return instance;
     // }
 
-    // 构建实例
+    // 构建实例 
     getInstance () {
         // 创建一个实例
         let instance = new PlayerCreator(...arguments);
