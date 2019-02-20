@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sortable的简单使用</title>
+    <style>
+        /* 拖拽时候到的背景颜色 */
+        .sortable-ghost {
+            opacity: 0.4;
+            background-color: #58bc58;
+        }
+    </style>
+    <script src="./js/Sortable.js"></script>
+</head>
+<!-- 首先, 这个插件是不支持ie9一下浏览器的 -->
+
+<ul id="foo" class="block__list block__list_words">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+
+
+
+<script>
+    let foo = document.getElementById('foo')
+
+    // 1.最简单的使用
+    
+    Sortable.create(foo, {
+        animation: 150, // 动画参数
+    })
+
+</script>
+
+<body>
+
+</body>
+
+</html>

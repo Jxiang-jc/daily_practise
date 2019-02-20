@@ -10,5 +10,10 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+    $color: red;
+    div {
+        background: $color;
+        height: 200px;
+    }
 </style>
