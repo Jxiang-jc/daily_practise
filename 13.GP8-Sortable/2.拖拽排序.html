@@ -81,7 +81,7 @@
                 id_arr += ',' + evt.from.children[i].getAttribute('drag-id')
             }
 
-            id_arr = id_arr.substr(1) // 截取从第一个到最后一个
+            id_arr = id_arr.substr(1) // substr() 方法可在字符串中抽取从 开始 下标开始的指定数目的字符。
 
             // 然后请求后台ajax这样就可以完成拖拽排序
             console.log('id_arr: ', id_arr)

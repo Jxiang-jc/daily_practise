@@ -36,6 +36,7 @@
             <p>4. 在test分支上 git add .</p>
             <p>5. 在test分支上commit</p>
             <p>6. 经过测试没问题了, 先回到主分支, git checout master, 然后合并分支 git merge test</p>
+            <p style="color:#f00; text-indent: 4em;">- 如果此时master与test修改了相同的文件, 那么会出现冲突, 此时需要手动去修改, 修改完成后, 可以用git add告诉Git 文件冲突已经解决</p>
             <p>7.推送到生成环境(也就是github), 一般是在主分支上(或者主分支下有一个总分支)推送 git push origin master</p>
             <p>8. 如果遇到冲突, 先git pull, </p>
             <p>9. 解决冲突以后, 在git add. git commit git push 重复以上操作即可</p>
