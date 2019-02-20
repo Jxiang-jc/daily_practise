@@ -60,3 +60,73 @@
         }
     }
 ```
+
+### Sortable.js其他参数接口设置
+
+- ### group：string or object
+```js
+string：命名，个人建议用元素id就行,用处是为了设置可以拖放容器时使用，在array中的put的设置中再做介绍；
+object：{name,pull,put}
+    name：同string的方法，
+    pull：pull用来定义从这个列表容器移动出去的设置，true/false/'clone'/function
+        true:列表容器内的列表单元可以被移出；
+        false：列表容器内的列表单元不可以被移出；
+        'clone'：列表单元移出，移动的为该元素的副本；
+        function：用来进行pull的函数判断，可以进行复杂逻辑，在函数中return false/true来判断是否移出；
+    put：put用来定义往这个列表容器放置列表单元的的设置，true/false/['foo','bar']/function
+        true:列表容器可以从其他列表容器内放入列表单元；
+        false：与true相反；
+        ['foo','bar']：这个可以是一个字符串或者是字符串的数组，代表的是group配置项里定义的name值；
+        function：用来进行put的函数判断，可以进行复杂逻辑，在函数中return false/true来判断是否放入；
+```
+
+- ### sort: boolean(true) 
+> &nbsp; &nbsp; &nbsp; &nbsp; 定义是否列表单元是否可以在列表容器内进行拖拽排序; false时候在自己的拖拽区域不能拖拽，但是可以拖拽到其他区域，true则可以做自己区域拖拽或者其他授权地方拖拽
+
+- ### delay: number(0)
+> &nbsp; &nbsp; &nbsp; &nbsp; 定义鼠标选中列表单元可以开始拖动的延迟时间; 延迟拖拽时间, 其实就是鼠标按下去拖拽延迟
+
+- ### disabled: Boolean(false)
+> &nbsp; &nbsp; &nbsp; &nbsp; 定义是否此sortable对象是否可用，为true时sortable对象不能拖放排序等功能，为false时为可以进行排序
+
+- ### animation: number(0)
+> &nbsp; &nbsp; &nbsp; &nbsp; 定义排序动画的时间；
+
+- ### handle: selector(null)
+> &nbsp; &nbsp; &nbsp; &nbsp; 这个参数是设置该标签，或者该class可以拖拽  但是不要设置 id的节点和子节点相同的tag不然会有bug
+
+- ### filter: selector(null)
+> &nbsp; &nbsp; &nbsp; &nbsp; 该参数可以传递一个函数,或者字符串,字符串可以是class或者tag,然后用于触发onFilter函数,这样可以用来自定义事件等(eg:删除当前节点)。 可设置为多个选择器, 中间用 “,” 分隔;
+
+- ### draggable: selector(null)
+> &nbsp; &nbsp; &nbsp; &nbsp; 简单css选择器的字符串，定义哪些列表单元可以进行拖放
+
+- ### ghostClass: selector('.sortable-ghost')
+> &nbsp; &nbsp; &nbsp; &nbsp; 排序镜像class,就是当鼠标拉起拖拽节点的时候添加该class
+
+- ### chosenClass: selector('sortable-chosen')
+> &nbsp; &nbsp; &nbsp; &nbsp; 为拖拽的节点添加一个class 开始拖拽鼠标按下去的时候 添加该class
+
+- ### forceFallback: boolean(false)
+> &nbsp; &nbsp; &nbsp; &nbsp; 如果设置为true时，将不使用原生的html5的拖放，可以修改一些拖放中元素的样式等;
+
+- ### fallbackClass: string
+> &nbsp; &nbsp; &nbsp; &nbsp; 当forceFallback设置为true时，拖放过程中鼠标附着单元的样式;
+
+- ### scroll: boolean(true)
+> &nbsp; &nbsp; &nbsp; &nbsp; 当排序的容器是个可滚动的区域, 拖放可以引起区域滚动. 设置拖拽的时候滚动条是否智能滚动。默认为真，则智能滚动，false则不智能滚动
+
+- ### scrollSensitivity: 30
+> &nbsp; &nbsp; &nbsp; &nbsp; 滚动的灵敏度,其实是拖拽离滚动边界的距离触发事件的距离边界+-30px的地方触发拖拽滚动事件，
+
+- ### scrollSpeed 10 
+> &nbsp; &nbsp; &nbsp; &nbsp; 滚动速度
+
+- ### ignore 'a, img' // 忽略
+
+- ###  setData
+``` js
+setData: function (dataTransfer, dragEl) { //设置拖拽传递的参数
+    dataTransfer.setData('Text', dragEl.textContent);
+},
+```
