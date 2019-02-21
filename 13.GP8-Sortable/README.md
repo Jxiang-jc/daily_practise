@@ -130,3 +130,5 @@ setData: function (dataTransfer, dragEl) { //设置拖拽传递的参数
     dataTransfer.setData('Text', dragEl.textContent);
 },
 ```
+
+- 使用 element-ui table 配合 sortable时， 必须在<el-table>中添加 row-key="id"。 否则有bug
