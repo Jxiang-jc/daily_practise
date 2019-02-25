@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4.vue_template中-slot-scope的使用</title>
+</head>
+<!-- 
+    在vue 2.5.0+ 中***slot-scope***替代了 scope
+    template 的使用情形为，我们已经封装好一个组件，预留了插槽，使用的插槽 
+-->
+
+<body>
+    <!-- 
+        首先 我们的创建一个子组件(son.vue)
+        组件很简单有一个 slot,slot有两个属性 a=123,b=msg  
+    -->
+    <template>
+        <div>
+            <div>下面是一个slot</div>
+            <slot a="123" b="msg"></slot>
+        </div>
+    </template>
+
+    <!-- 
+        接下来我们引入组件，并使用组件,引入的组件名 为mysolt，并使用组件
+    -->
+    <!-- 在父组件中引入子组件(son.vue) -->
+
+    <!-- 然后使用 template ,并使用scope/slot-scope, -->
+    <div>
+        <mysolt>
+            <template scope="msg">
+                <div>下面是solt的props 调用</div>
+                <div>{{msg}}</div>
+                <div>{{msg.a}}</div>
+                <div>{{msg.b}}</div>
+            </template>
+        </mysolt>
+    </div>
+
+    <!-- 渲染结果如下: -->
+    <!-- 
+        下面是一个slot
+        下面是solt的props 调用
+        {"a": "123", "b": "msg"}
+        123
+        msg
+    -->
+<!-- ------------------------------------------------------------ -->
+
+    <!-- 
+        其实就是 template 通过scope/slot-scope 属性 调用组件 slot	的属性，以达到可以调用组件属性实现复杂的嵌套；
+
+        实例中 我使用 msg 来重命名 slot 的属性对象，
+        即 msg 为slot 的{a:‘123’,b:‘msg’}, 就可以通过使用msg 在template 中使用slot的属性
+
+        （注意：当前层 如果有data已经声明过 msg,它们之间互不干扰，template 的msg 以slot 的为准）
+    -->
+
+    <!-- 如果我给当前 data的msg={c:111}，效果图如下： -->
+    <div>{{msg.c}}</div>
+
+    <mysolt>
+        <template scope="msg">
+            <div>下面是solt的msg</div>
+            <div>{{msg}}</div>
+            <div>{{msg.a}}</div>
+            <div>{{msg.b}}</div>
+            <div>{{msg.c}}</div>
+        </template>
+    </mysolt>
+
+    <!-- 结果如下: -->
+    <!-- 
+        111
+        下面是一个slot
+        下面是solt的props 调用
+        {"a": "123", "b": "msg"}
+        123
+        msg
+    -->
+</body>
+
+</html>
