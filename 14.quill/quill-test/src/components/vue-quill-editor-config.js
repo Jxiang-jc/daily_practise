@@ -2,9 +2,9 @@
 import * as Quill from "quill"; // 引入编辑器
 console.log(Quill)
 // 图片拖拽缩放
-import ImageResize from 'quill-image-resize-module-withfix'; 
-Quill.register('modules/imageResize', ImageResize);
+import ImageResize from 'quill-image-resize-module-withfix';
 
+Quill.register('modules/imageResize', ImageResize);
 
 // quill编辑器的字体
 var fonts = [
