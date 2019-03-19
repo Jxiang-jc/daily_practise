@@ -5,10 +5,10 @@ import App from './App'
 import router from './router'
 
 // css
-import './assets/css/reset.css'
+import 'css/reset.css'
 
 // iconfont
-import './assets/css/iconfont.css'
+import 'css/iconfont.css'
 
 // 引入rem
 import 'lib-flexible/flexible.js' // 淘宝的flexible方案 font-size为37.5px

@@ -18,12 +18,14 @@ export default {}
 </script>
 
 <style scoped lang="scss">
+@import 'css/var.scss';
+
 .header {
   width: 100%;
   height: 44px;
   line-height: 44px;
-  background: #00bcd4;
-  color: #fff;
+  background: $bgcolor;
+  color: $textColor;
   font-size: 18px;
   display: flex;
   .header_left {
