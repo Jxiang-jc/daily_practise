@@ -19,7 +19,7 @@
         swiperList: [
           {
             id: 1,
-            imgUrl: require('@/assets/img/swiper1.jpg')
+            imgUrl: ''
           },
           {
             id: 2,

@@ -17,8 +17,7 @@
 export default {}
 </script>
 
-<style scoped lang="scss">
-@import 'css/var.scss';
+<style lang="scss">
 
 .header {
   width: 100%;

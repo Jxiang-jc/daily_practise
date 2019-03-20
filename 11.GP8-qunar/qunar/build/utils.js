@@ -37,6 +37,8 @@ exports.cssLoaders = function (options) {
     }
   }
 
+
+
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader, px2remLoader] : [cssLoader, px2remLoader]
@@ -68,13 +70,13 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
-    // scss: generateLoaders('sass').concat({
-    //     loader:'sass-resources-loader', // 这个是全局使用scss资源的配置
-    //     options:{ 
-    //       resources:path.resolve(__dirname,'../src/assets/style/_variable.scss')
-    //     }
-    // }),
+    // scss: generateLoaders('sass'),
+    scss: generateLoaders('sass').concat({
+        loader: 'sass-resources-loader', // 这个是全局使用scss资源的配置
+        options: {
+          resources: [path.resolve(__dirname, '../src/stylesheets/_base.scss'), path.resolve(__dirname, '../src/stylesheets/_mixins.scss')]
+        }
+    }),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }

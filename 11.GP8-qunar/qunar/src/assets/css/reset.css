@@ -94,3 +94,28 @@ table {
 .fr {
   float: right;
 }
+/* svg字体图标 */
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+/* 添加上边框 */
+.border-top:before {
+  content: '';
+  position: absolute;
+  border-top: 1px solid #e0e0e0;
+  width: 100%;
+  left: 0;
+}
+/* 添加右边框 */
+.border-right:before {
+  content: '';
+  position: absolute;
+  border-right: 1px solid #e0e0e0;
+  height: 100%;
+  left: 50%;
+}
