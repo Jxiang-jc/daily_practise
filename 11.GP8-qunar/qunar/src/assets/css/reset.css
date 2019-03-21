@@ -119,3 +119,11 @@ table {
   height: 100%;
   left: 50%;
 }
+.border-bottom:before {
+  content: '';
+  position: absolute;
+  border-bottom: 1px solid #e0e0e0;
+  height: 1px;
+  width: 100%;
+  bottom: 0;
+}

@@ -1,6 +1,11 @@
 
-@mixin testOverflow {
+@mixin textOverflow {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+@mixin bgColor {
+    background: #fff;
+    margin-top: 10px;
 }

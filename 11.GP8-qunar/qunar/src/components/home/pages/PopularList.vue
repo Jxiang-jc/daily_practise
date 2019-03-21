@@ -1,6 +1,6 @@
 <template>
   <div class="popularList">
-    <div class="hot_title">
+    <!-- <div class="hot_title">
       <span class="hot_title_left">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-remen"></use>
@@ -10,27 +10,48 @@
       <span class="hot_title_right">
         全部榜单<i class="iconfont icon-arrow-right-copy-copy-copy"></i>
       </span>
-    </div>
+    </div> -->
 
-    <ul class="hot_sale">
-      <li class="hot_sale_item"
-        v-for="(hotSale, index) in hotSales"
-        :key=index
-      >
-        <div class="load_img">
-          <img :src="hotSale.imgUrl">
-        </div>
-        <p class="hot_sale_title">{{ hotSale.title }}</p>
-        <p class="hot_price">
-          <span class="hot_price_left">￥{{hotSale.price}}</span>起
-        </p>
-      </li>
-    </ul>
+    <!-- 使用复用UI组件 -->
+    <title-box :title="'本周热门榜单'">
+      <!-- iconfont插槽 -->
+      <svg class="icon" aria-hidden="true" slot="iconfont">
+        <use xlink:href="#icon-remen"></use>
+      </svg>
+
+      <!-- more插槽 -->
+      <span slot="more">
+        全部榜单<i class="iconfont icon-arrow-right-copy-copy-copy"></i>
+      </span>
+
+      <!-- 匿名插槽 -->
+      <ul class="hot_sale">
+        <li class="hot_sale_item"
+          v-for="(hotSale, index) in hotSales"
+          :key=index
+        >
+          <div class="load_img">
+            <img :src="hotSale.imgUrl">
+          </div>
+          <p class="hot_sale_title">{{ hotSale.title }}</p>
+          <p class="hot_price">
+            <span class="hot_price_left">￥{{hotSale.price}}</span>起
+          </p>
+        </li>
+      </ul>
+    </title-box>
+
   </div>
 </template>
 
 <script>
+import TitleBox from '@/components/commons/TitleBox'
+
 export default {
+  components: {
+    TitleBox
+  },
+
   data () {
     return {
       hotSales: [
@@ -109,8 +130,7 @@ export default {
 <style lang="scss" scoped>
 
 .popularList {
-  background: #fff;
-  margin-top: 10px;
+  @include bgColor;
 }
 .hot_title {
   padding: 12px 0;
@@ -145,7 +165,7 @@ export default {
     width: 100%;
   }
   p {
-    @include testOverflow;
+    @include textOverflow;
   }
   .hot_sale_title {
     color: $smallSizeColor;
@@ -153,7 +173,7 @@ export default {
     font-size: 12px;
   }
   .hot_price {
-    // color: $miniSizeColor;
+    color: $miniSizeColor;
     margin-top: 6px;
     font-size: 12px;
     .hot_price_left {

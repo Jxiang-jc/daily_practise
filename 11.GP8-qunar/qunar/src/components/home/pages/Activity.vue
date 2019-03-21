@@ -19,8 +19,7 @@ export default {
 .activity {
   display: flex;
   position: relative;
-  margin-top: 10px;
-  background: #fff;
+  @include bgColor;
   .activity_item {
     flex: 1;
     font-size: 14px;;

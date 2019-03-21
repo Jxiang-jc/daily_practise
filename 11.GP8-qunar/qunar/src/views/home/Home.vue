@@ -6,6 +6,8 @@
     <home-location></home-location>
     <home-activity></home-activity>
     <home-popular-list></home-popular-list>
+    <home-like></home-like>
+    <home-vacation></home-vacation>
   </div>
 </template>
 
@@ -16,6 +18,8 @@ import HomeIcons from '@/components/home/pages/Icons'
 import HomeLocation from '@/components/home/pages/Location'
 import HomeActivity from '@/components/home/pages/Activity'
 import HomePopularList from '@/components/home/pages/PopularList'
+import HomeLike from '@/components/home/pages/Like'
+import HomeVacation from '@/components/home/pages/Vacation'
 export default {
   components: {
     HomeHeader,
@@ -23,7 +27,9 @@ export default {
     HomeIcons,
     HomeLocation,
     HomeActivity,
-    HomePopularList
+    HomePopularList,
+    HomeLike,
+    HomeVacation
   }
 }
 </script>
