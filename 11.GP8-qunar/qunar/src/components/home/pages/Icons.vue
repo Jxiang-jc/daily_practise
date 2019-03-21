@@ -19,60 +19,19 @@
 
 <script>
 export default {
+  props: {
+    iconList: {
+      type: Array,
+      required: true,
+      // 当type的类型为Array或者Object的时候default必须是一个函数：
+      default: () => {
+        return []
+      }
+    }
+  },
+
   data () {
     return {
-      icons: [
-        {
-          id: 1,
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          content: '景点门票'
-        },
-        {
-          id: 2,
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-          content: '广州必游'
-        },
-        {
-          id: 3,
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',
-          content: '动植物园'
-        },
-        {
-          id: 4,
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png',
-          content: '自然风光'
-        },
-        {
-          id: 5,
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
-          content: '珠江夜游'
-        },
-        {
-          id: 6,
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-          content: '泡温泉'
-        },
-        {
-          id: 7,
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-          content: '一日游'
-        },
-        {
-          id: 8,
-          imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/184e261814a5d07a5d3d08cd29cf590d.png',
-          content: '长隆度假区'
-        },
-        {
-          id: 9,
-          imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/c032ae43b15a3dac34b5e07bb0e46850.png',
-          content: '广州塔'
-        },
-        {
-          id: 10,
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png',
-          content: '踏青赏花'
-        }
-      ],
       swiperOption: {
          pagination: {
             el: '.icons-pagination'
@@ -83,7 +42,7 @@ export default {
   computed: {
     page () {
       let pages = []
-      this.icons.forEach((item, index) => {
+      this.iconList.forEach((item, index) => {
         let idx = Math.floor(index / 8)
 
         if (!pages[idx]) pages[idx] = []

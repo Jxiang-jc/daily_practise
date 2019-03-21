@@ -21,35 +21,18 @@
 
 <script>
 export default {
-  data () {
-    return {
-      vacationList: [
-        {
-          id: 1,
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1811/15/66f14e0fd6fbb.jpg_r_640x214_5d69f21d.jpg',
-          title: '清远周边逛',
-          msg: '人人都有一双发现美的眼睛，身边的事物最熟悉不过，那你可曾发现了被人遗漏的美？'
-        },
-        {
-          id: 2,
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1811/b8/5d599bbdcf8b57.jpg_r_640x214_2ee055e3.jpg',
-          title: '浮在海上的绿洲',
-          msg: '南国滨海之城，避寒胜地，有暖暖的阳光，海风习习，吃着海鲜逛逛老街多惬意啊'
-        },
-        {
-          id: 3,
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1812/fe/208e0360d686b8.jpg_r_640x214_7b9e6607.jpg',
-          title: '广州泡汤圣地',
-          msg: '解压之地，放松自己，来一段轻松的旅程。'
-        },
-        {
-          id: 6,
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f8/29dfa785277839.jpg_r_640x214_7d051523.jpg',
-          title: '阳江温泉知多少',
-          msg: '这里的天空和大海让人心旷神怡，配上舒缓的优美音乐，泡个暖暖的温泉岂不美哉'
-        }
-      ]
+  props: {
+    vacationList: {
+      type: Array,
+      required: true,
+      // 当type的类型为Array或者Object的时候default必须是一个函数：
+      default: () => {
+        return []
+      }
     }
+  },
+  data () {
+    return {}
   }
 }
 </script>

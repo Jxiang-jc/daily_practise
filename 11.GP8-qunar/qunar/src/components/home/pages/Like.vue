@@ -49,54 +49,18 @@ export default {
   components: {
     TitleBox
   },
-  data () {
-    return {
-      likeList: [
-        {
-          id: 1,
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/201403/07/30b534b0de51ccac2906bcb6ba159988.jpg_200x200_2f08733b.jpg',
-          title: '长隆野生动物世界',
-          commont: '12345',
-          price: '274',
-          location: '广州长隆...',
-          feature: '熊猫三胞胎与您共享欢乐时光'
-        },
-        {
-          id: 2,
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1410/20/41d723daadc98045fe6b7283ba0af40c.jpg_200x200_5a05d5bc.jpg',
-          title: '碧水湾温泉度假村',
-          commont: '2222',
-          price: '345',
-          location: '从化市'
-        },
-        {
-          id: 3,
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/3c/3c514c20a740128b90.water.jpg_200x200_c7102a23.jpg',
-          title: '南沙百万葵园',
-          commont: '3333',
-          price: '123',
-          location: '南沙区'
-        },
-        {
-          id: 4,
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_200x200_c118d7da.jpg',
-          title: '广州长隆旅游度假区',
-          commont: '4444',
-          price: '274',
-          location: '番禺',
-          feature: '《奔跑吧兄弟》取景地'
-        },
-        {
-          id: 5,
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1508/d9/12d379fbfee474d481da6e950b740ff3.water.jpg_200x200_4a3f867b.jpg',
-          title: '增城金叶子温泉',
-          commont: '5555',
-          price: '212',
-          location: '增城',
-          feature: '高山温泉水疗养生，视野开阔滋养身心'
-        }
-      ]
+  props: {
+    likeList: {
+      type: Array,
+      required: true,
+      // 当type的类型为Array或者Object的时候default必须是一个函数：
+      default: () => {
+        return []
+      }
     }
+  },
+  data () {
+    return {}
   }
 }
 </script>

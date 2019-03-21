@@ -14,26 +14,19 @@
 <script>
   export default {
     name: 'carrousel',
+    props: {
+      swiperList: {
+        type: Array,
+        required: true,
+        // 当type的类型为Array或者Object的时候default必须是一个函数：
+        default: () => {
+          return []
+        }
+      }
+    },
+
     data () {
       return {
-        swiperList: [
-          {
-            id: 1,
-            imgUrl: require('@/assets/img/swiper1.jpg')
-          },
-          {
-            id: 2,
-            imgUrl: require('@/assets/img/swiper2.jpg')
-          },
-          {
-            id: 3,
-            imgUrl: require('@/assets/img/swiper3.jpg')
-          },
-          {
-            id: 4,
-            imgUrl: require('@/assets/img/swiper4.jpg')
-          }
-        ],
         swiperOption: {
           pagination: {
             el: '.swiper-pagination'

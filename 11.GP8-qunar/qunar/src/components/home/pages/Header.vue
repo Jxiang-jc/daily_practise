@@ -8,7 +8,7 @@
       输入城市/景点/游玩主题
     </div>
     <div class="header_right">
-      北京<span class="iconfont icon-jiantouarrow486"></span>
+      广州<span class="iconfont icon-jiantouarrow486"></span>
     </div>
   </div>
 </template>
