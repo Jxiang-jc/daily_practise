@@ -7,8 +7,10 @@
       <span class="iconfont icon-sousuo"></span>
       输入城市/景点/游玩主题
     </div>
-    <div class="header_right">
-      广州<span class="iconfont icon-jiantouarrow486"></span>
+    <div class="header_right" >
+      <router-link to="/city">
+        广州<span class="iconfont icon-jiantouarrow486"></span>
+      </router-link>
     </div>
   </div>
 </template>
@@ -44,9 +46,12 @@ export default {}
     padding-left: 10px;
   }
   .header_right {
-    font-size: 15px;
-    padding-left: 10px;
+    font-size: 16px;
+    padding: 0 10px;
     text-align: center;
+    a {
+      color: #fff;
+    }
   }
 }
 

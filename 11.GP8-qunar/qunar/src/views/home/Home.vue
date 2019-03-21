@@ -42,7 +42,7 @@ export default {
   },
   mounted () {
     this.$http
-      .get('api/dataHome.json')
+      .get('/api/dataHome.json')
       .then(res => {
         console.log('res: ', res)
         const data = res.data.data[0] || []
