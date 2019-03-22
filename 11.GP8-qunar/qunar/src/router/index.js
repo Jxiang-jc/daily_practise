@@ -32,7 +32,7 @@ export default new Router({
       name: 'Details',
       component: Details,
       meta: {
-        keepAlive: false
+        keepAlive: true
       }
     },
     { // 景区图片
