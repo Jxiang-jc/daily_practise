@@ -9,17 +9,23 @@
     </div>
     <div class="header_right" >
       <router-link to="/city">
-        广州<span class="iconfont icon-jiantouarrow486"></span>
+        {{city}}<span class="iconfont icon-jiantouarrow486"></span>
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import {mapState} from 'vuex'
+
+export default {
+  computed: {
+    ...mapState(['city'])
+  }
+}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .header {
   width: 100%;

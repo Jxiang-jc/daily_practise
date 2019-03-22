@@ -9,15 +9,15 @@
         },
         {
           "id": 2,
-          "imgUrl": "/api/img/swiper1.jpg"
+          "imgUrl": "/api/img/swiper2.jpg"
         },
         {
           "id": 3,
-          "imgUrl": "/api/img/swiper1.jpg"
+          "imgUrl": "/api/img/swiper3.jpg"
         },
         {
           "id": 4,
-          "imgUrl": "/api/img/swiper1.jpg"
+          "imgUrl": "/api/img/swiper4.jpg"
         }
       ],
       "iconList": [

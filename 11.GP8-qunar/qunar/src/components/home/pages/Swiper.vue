@@ -1,6 +1,6 @@
 <template>
   <div class="header-swiper load_img">
-    <swiper :options="swiperOption" ref="mySwiper">
+    <swiper v-if="loopList.length>0" :options="swiperOption" ref="mySwiper">
       <swiper-slide v-for="(swiper,index) in swiperList"
         :key="index"
       >
@@ -24,20 +24,41 @@
         }
       }
     },
+    watch: {
+      swiperList: {
+        handler (nVal, oVal) {
+          this.loopList = nVal
+        }
+      }
+    },
 
     data () {
       return {
+        loopList: [], // 存放数据的list， 监听数据变化， 否则loop不生效
         swiperOption: {
           pagination: {
             el: '.swiper-pagination'
           },
           loop: true,
+          speed: 800, // 滑动速度
           autoplay: {
             disableOnInteraction: false, // true以后，手动滑动图片会停止自动轮播， 默认是true
             delay: 3000
           }
         }
       }
+    },
+    computed: {
+      swiper () {
+        return this.$refs.mySwiper.swiper
+      }
+    },
+
+    methods: {
+    },
+
+    mounted () {
+
     }
   }
 </script>
