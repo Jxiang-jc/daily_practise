@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import HomeHeader from '@/components/home/pages/Header'
 import HomeSwiper from '@/components/home/pages/Swiper'
 import HomeIcons from '@/components/home/pages/Icons'
@@ -37,21 +38,43 @@ export default {
       iconList: [],
       likeList: [],
       hotSales: [],
-      vacationList: []
+      vacationList: [],
+      changeCity: '' // 配合activated生命周期使用
+    }
+  },
+  computed: {
+    ...mapState(['city'])
+  },
+  methods: {
+    getData () {
+      this.$http
+        .get('/api/dataHome.json')
+        .then(res => {
+          console.log('res: ', res)
+          const data = res.data.data || []
+          data.forEach((item, idx) => {
+            if (item.city === this.city) {
+              this.changeCity = item.city
+              this.swiperList = item.swiperList
+              this.iconList = item.iconList
+              this.likeList = item.likeList
+              this.hotSales = item.hotSales
+              this.vacationList = item.vacationList
+            }
+          })
+        })
     }
   },
   mounted () {
-    this.$http
-      .get('/api/dataHome.json')
-      .then(res => {
-        console.log('res: ', res)
-        const data = res.data.data[0] || []
-        this.swiperList = data.swiperList
-        this.iconList = data.iconList
-        this.likeList = data.likeList
-        this.hotSales = data.hotSales
-        this.vacationList = data.vacationList
-      })
+    this.getData()
+  },
+
+  activated () {
+    // 如果页面城市发生改变， 则请求数据， 否则，keep-alive缓存
+    if (this.changeCity !== this.city) {
+      this.getData()
+      this.changeCity = this.city
+    }
   }
 }
 </script>

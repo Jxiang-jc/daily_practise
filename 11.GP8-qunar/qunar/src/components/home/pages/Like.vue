@@ -11,6 +11,7 @@
           <li class="like_item border-bottom"
             v-for="(item, index) in likeList"
             :key="index"
+            @click="ToDetails"
           >
             <div class="like_img">
               <img :src="item.imgUrl">
@@ -61,6 +62,11 @@ export default {
   },
   data () {
     return {}
+  },
+  methods: {
+    ToDetails () {
+      this.$router.push('/details')
+    }
   }
 }
 </script>

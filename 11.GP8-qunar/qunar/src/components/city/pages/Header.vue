@@ -1,10 +1,11 @@
 <template>
   <div class="header">
     <!-- 返回按钮 -->
-    <div class="header_left">
-      <span class="iconfont icon-fanhui"></span>
-    </div>
-
+    <router-link to="/">
+      <div class="header_left">
+        <span class="iconfont icon-fanhui"></span>
+      </div>
+    </router-link>
     <!-- 城市选择 -->
     <div class="header_title">
       城市选择
@@ -37,5 +38,8 @@ export default {}
     font-size: 16px;
   }
 }
-
+// 重置返回键颜色
+.router-link-active {
+  color: #fff;
+}
 </style>
