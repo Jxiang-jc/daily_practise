@@ -53,6 +53,11 @@
 import BScroll from 'better-scroll'
 import { mapMutations } from 'vuex'
 
+const scrollOpt = {
+  click: true,
+  taps: true
+}
+
 export default {
   props: {
     hotList: {
@@ -67,7 +72,7 @@ export default {
   mounted () {
     this.$nextTick(() => {
       let container = this.$refs.container
-      this.scroll = new BScroll(container)
+      this.scroll = new BScroll(container, scrollOpt)
     })
   },
 
@@ -181,11 +186,10 @@ export default {
     &:after {
       content: '';
       position: absolute;
-      width: 25%;
+      width: 0;
       height: 100%;
-      left: 50%;
+      left: 75%;
       border-right: 1px solid #ddd;
-      z-index:-1;
     }
     .list_msg_item {
       position: relative;

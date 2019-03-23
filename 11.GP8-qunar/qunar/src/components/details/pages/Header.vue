@@ -38,7 +38,7 @@ export default {
     scrollShow () {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       if (scrollTop > 45) {
-        let opacity = scrollTop / 130 // 经验
+        let opacity = scrollTop / 130 // 经验得出130
         opacity = opacity > 1 ? 1 : opacity
         this.styleOpacity = {opacity}
         this.showHeader = false
