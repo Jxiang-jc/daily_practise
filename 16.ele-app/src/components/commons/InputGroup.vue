@@ -9,7 +9,8 @@
         :placeholder="placeholder"
         :name="name"
         @input="$emit('input', $event.target.value)"
-      > // https://www.cnblogs.com/jiaoyu121/p/7078445.html @input=$emit的解释
+      />
+      <!-- https://www.cnblogs.com/jiaoyu121/p/7078445.html @input=$emit的解释 -->
 
       <!-- 输入框后面的按钮 -->
       <button v-if="btnTitle"
@@ -35,7 +36,7 @@ export default {
     },
     value: { // 输入框的值
       type: String,
-      required: false,
+      required: false
     },
     placeholder: String, // 默认占位符
     name: String, // 如果是表单，必须要传
@@ -60,19 +61,18 @@ export default {
   &.is_invalid {
     border: 1px solid red;
   }
- 
   input {
     height: 100%;
     width: 60%;
     outline: none;
+    border: none;
   }
-
   button {
     border: none;
     outline: none;
     background: #fff;
     &[disabled] {
-     color: #aaa; 
+     color: #aaa;
     }
   }
 }

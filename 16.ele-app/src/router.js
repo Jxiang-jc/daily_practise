@@ -15,7 +15,7 @@ const router = new Router({
     {
       path: '/login',
       name: 'login',
-      component: () => import('./views/Login.vue')
+      component: () => import('./views/login/Login.vue')
     }
     // {
     //   path: '/about',
@@ -30,7 +30,9 @@ const router = new Router({
 
 // 全局路由守卫
 router.beforeEach((to, from, next) => {
-  const isLogin = localStorage.ele_login ? true : false
+  // const isLogin = localStorage.ele_login ? true : false
+  // 下面写法是简写。 eslint也建议这样的写法
+  const isLogin = localStorage.ele_login !== undefined
 
   if (to.path === '/login') {
     next()
