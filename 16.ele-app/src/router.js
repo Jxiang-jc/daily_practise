@@ -9,22 +9,35 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('./views/index.vue')
+      // name: 'home', 有子路由时不需要name
+      component: () => import('./views/index.vue'),
+      children: [
+        {
+          path: '',
+          redirect: '/home'
+        },
+        {
+          path: '/home',
+          name: 'home',
+          component: () => import('./views/home/Home.vue')
+        },
+        {
+          path: '/order',
+          name: 'order',
+          component: () => import('./views/order/Order.vue')
+        },
+        {
+          path: '/profile',
+          name: 'profile',
+          component: () => import('./views/profile/Profile.vue')
+        }
+      ]
     },
     {
       path: '/login',
       name: 'login',
       component: () => import('./views/login/Login.vue')
     }
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    // }
   ]
 })
 

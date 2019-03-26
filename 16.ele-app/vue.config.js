@@ -17,5 +17,10 @@ module.exports = {
       }
     },
     before: app => {}
+  },
+  configureWebpack: {
+    externals: {
+      'AMap': 'AMap'
+    }
   }
 }

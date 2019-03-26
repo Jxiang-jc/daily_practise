@@ -58,10 +58,11 @@ export default {
   computed: {
     // 判断输入框是否为空，
     isClick () {
-      if (!this.phone || !this.verifyCode)
+      if (!this.phone || !this.verifyCode) {
         return true
-      else
+      } else {
         return false
+      }
     }
   },
   methods: {
