@@ -12,13 +12,20 @@ const types = {
 // state
 const state = {
   location: {},
-  address: ''
+  address: '正在获取地址...'
 }
 
 const getters = {
   location: state => state.location,
   address (state) {
     return state.address
+  },
+  exactLocal: state => {
+    if (state.location.addressComponent) {
+      return state.location.addressComponent.city || state.location.addressComponent.province
+    } else {
+      return '获取不到当前位置'
+    }
   }
 }
 

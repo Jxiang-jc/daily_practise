@@ -1,7 +1,14 @@
 <template>
   <div class="home">
     <div class="home_header">
-      <div class="home_address_map">
+      <div class="home_address_map"
+        @click="$router.push({
+          name: 'address',
+          params: {
+            city: city
+          }
+        })"
+      >
         <i class="fa fa-map-marker"></i>
         <span>{{ home_address }}</span>
         <i class="fa fa-sort-desc"></i>
@@ -27,13 +34,18 @@ export default {
     // ...mapGetters(['address'])
     // 第三种方法（个人建议用这种咯）
     ...mapGetters({
-      home_address: 'address' // 用单引号代表简写
-      // address: state => state.address 这种写法是state才有， getter是没有的，会报错
+      // home_address: state => state.address 这种写法是state才有， getter是没有的，会报错
+      home_address: 'address', // 用单引号代表简写
+
+      city: 'exactLocal' // 当前精确地理位置
     }),
 
     ...mapState({
       address: state => state.address
     })
+  },
+  mounted () {
+    console.log('city', this.city)
   }
 }
 </script>

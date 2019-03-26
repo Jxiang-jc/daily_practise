@@ -30,6 +30,11 @@ const router = new Router({
           path: '/profile',
           name: 'profile',
           component: () => import('./views/profile/Profile.vue')
+        },
+        {
+          path: '/address',
+          name: 'address',
+          component: () => import('./views/address/Address.vue')
         }
       ]
     },
