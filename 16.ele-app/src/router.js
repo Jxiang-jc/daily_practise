@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
@@ -35,6 +35,11 @@ const router = new Router({
           path: '/address',
           name: 'address',
           component: () => import('./views/address/Address.vue')
+        },
+        {
+          path: '/city',
+          name: 'city',
+          component: () => import('./views/cities/Cities.vue')
         }
       ]
     },

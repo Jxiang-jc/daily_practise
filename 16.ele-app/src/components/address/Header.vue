@@ -62,7 +62,7 @@ export default {
   background: #009eef;
   box-sizing: border-box;
   display: flex;
-  font-size: 16px;
+  font-size: 17px;
   height: 45px;
   line-height: 45px;
   white-space: nowrap;
@@ -81,13 +81,15 @@ export default {
     }
   }
   .is_left {
-    text-align: left;
+    position: absolute;
+    left: 10px;
   }
   .header_title {
     flex: 1;
   }
   .header_right {
-    text-align: right;
+    position: absolute;
+    right: 10px;
   }
 }
 </style>

@@ -28,11 +28,11 @@ export default {
 
         function onComplete (data) {
           // data是具体的定位信息  精准定位
-          console.log(data)
-          // self.$store.commit('SET_LOCATION', data)
-          // self.$store.commit('SEL_ADDRESS', data.formattedAddress)
-          self.$store.dispatch('setLocation', data)
-          self.$store.dispatch('setAddress', data.formattedAddress)
+          console.log('data:', data)
+          self.$store.commit('SET_LOCATION', data)
+          self.$store.commit('SEL_ADDRESS', data.formattedAddress)
+          // self.$store.dispatch('setLocation', data)
+          // self.$store.dispatch('setAddress', data.formattedAddress)
         }
 
         function onError (data) {
@@ -45,27 +45,43 @@ export default {
     },
 
     getLngLatLocation () {
+      const self = this
       AMap.plugin('AMap.CitySearch', function () {
         var citySearch = new AMap.CitySearch()
         citySearch.getLocalCity(function (status, result) {
           if (status === 'complete' && result.info === 'OK') {
             // 查询成功，result即为当前所在城市信息
-            console.log(result)
-            AMap.plugin('AMap.Geocoder', function () {
-              var geocoder = new AMap.Geocoder({
-                // city 指定进行编码查询的城市，支持传入城市名、adcode 和 citycode
-                city: result.adcode
-              })
+            console.log('result: ', result)
+            self.adcodeGetCity(result)
+          }
+        })
+      })
+    },
+    // 通过adcode获取当前地理位置（非精确）
+    adcodeGetCity (result) {
+      const self = this
+      AMap.plugin('AMap.Geocoder', function () {
+        var geocoder = new AMap.Geocoder({
+          // city 指定进行编码查询的城市，支持传入城市名、adcode 和 citycode
+          // adcode: "440100"
+          city: result.adcode
+        })
 
-              var lnglat = result.rectangle.split(';')[0].split(',')
+        // rectangle: "113.1017375,22.93212254;113.6770499,23.3809537"
+        var lnglat = result.rectangle.split(';')[0].split(',')
 
-              geocoder.getAddress(lnglat, function (status, data) {
-                if (status === 'complete' && data.info === 'OK') {
-                  // result为对应的地理位置详细信息
-                  // console.log(data)
-                }
-              })
+        geocoder.getAddress(lnglat, function (status, data) {
+          if (status === 'complete' && data.info === 'OK') {
+            // result为对应的地理位置详细信息
+            console.log('data :', data)
+            self.$store.dispatch('setLocation', {
+              addressComponent: {
+                city: result.city,
+                province: result.province
+              },
+              formattedAddress: data.regeocode.formattedAddress
             })
+            self.$store.dispatch('setAddress', data.regeocode.formattedAddress)
           }
         })
       })
@@ -75,6 +91,10 @@ export default {
 </script>
 
 <style scoped>
+html,body {
+  height: 100%;
+  width: 100%;
+}
 #app {
   width: 100%;
   height: 100%;

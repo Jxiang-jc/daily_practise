@@ -40,8 +40,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .index {
-    width: 100%;
-    height: calc(100% -45px);
-  }
+
+.index {
+  width: 100%;
+  height: calc(100% - 45px);
+}
 </style>

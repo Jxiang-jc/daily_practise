@@ -25,12 +25,12 @@
     <address-location :address="address"></address-location>
 
     <!-- 搜索显示列表 -->
-    <div class="area">
-      <ul class="area_list"
-        v-for="(item,index) in areaList"
-        :key="index"
-      >
-        <li>
+    <div class="area" ref="container" v-show="areaList.length > 0">
+      <ul class="area_list">
+        <li v-for="(item,index) in areaList"
+          :key="index"
+          @click="selectAddress(item)"
+        >
           <h4>{{ item.name}}</h4>
           <p>{{ item.district }}{{ item.address}}</p>
         </li>
@@ -41,6 +41,7 @@
 
 <script>
 import AMap from 'AMap'
+import BScroll from 'better-scroll'
 import AddressHeader from '@/components/address/Header'
 import AddressLocation from '@/components/address/Location'
 
@@ -78,6 +79,7 @@ export default {
     }
   },
   methods: {
+    // 搜索地址
     searchPlace () {
       const self = this
       // console.log(this.search_val);
@@ -92,8 +94,39 @@ export default {
           // 搜索成功时，result即是对应的匹配数据
           // console.log(result);
           self.areaList = result.tips
+
+          // 当数组有数据时，实例化better-scroll
+          self.initBScroll()
         })
       })
+    },
+
+    // 初始化滚动条
+    initBScroll () {
+      let container = this.$refs.container
+
+      this.scroll = new BScroll(container, {
+        click: true,
+        taps: true
+      })
+    },
+
+    // 选择地址
+    selectAddress (item) {
+      if (item) {
+        // this.$store.dispatch(
+        //   "setAddress",
+        //   item.district + item.address + item.name
+        // )
+        this.$store.commit('SEL_ADDRESS', item.district + item.address + item.name)
+        // 从这里发现一个道理，在同步情况， 也是可以使用dispatch的。得到结果是一样的。这里需要注意一下。有可能是我理解还不到位。而且这里commit的方法是'SEL_ADDRESS' 而非‘types.SEL_ADDRESS（看store）’。 很是神奇
+        // console.log(this.$store.state.address)
+      } else {
+        this.$store.dispatch('setAddress', this.address)
+      }
+
+      // 跳转home
+      this.$router.push('/home')
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -167,17 +200,25 @@ export default {
 }
 
 .area {
-  margin-top: 16px;
+  width: 100%;
+  margin-top: 18px;
+  height: calc(100% - 162px); // 减去所有的高度，剩下的就是area的高度，margin也要算
   background: #fff;
-  li {
-    border-bottom: 1px solid #eee;
-    padding: 8px 16px;
-    color: #aaa;
-    h4 {
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 5px;
+  overflow: hidden;
+  box-sizing: border-box;
+  .area_list {
+    // height: 100%;
+    li {
+      border-bottom: 1px solid #eee;
+      padding: 8px 16px;
+      color: #aaa;
+      h4 {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+      }
     }
   }
+
 }
 </style>
