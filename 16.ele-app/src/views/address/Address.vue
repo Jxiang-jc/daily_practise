@@ -7,7 +7,9 @@
     ></address-header>
     <!-- 搜索框 -->
     <div class="address_city_search">
-      <div class="address_search">
+      <div class="address_search"
+        @click="$router.push('/city')"
+      >
         <span class="address_city_select">
          <span class="address_city_name">{{ city }}</span>
           <i class="fa fa-angle-down"></i>
