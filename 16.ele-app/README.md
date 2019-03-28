@@ -27,3 +27,9 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+1. 页面切换过渡动画
+2. 点击进入城市列表， 下面tabbar高亮失效
+5. 返回传参问题
+3. 添加scss配置。 mixin那些
+4. pxtorem

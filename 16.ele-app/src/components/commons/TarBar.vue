@@ -42,7 +42,7 @@ export default {
     height: 45px;
     box-sizing: border-box;
     width: 100%;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     background-image: linear-gradient(
       180deg,

@@ -3,7 +3,7 @@
     <!-- 左侧返回 -->
     <div class="header_button is_left"
       v-show="isLeft.boolean"
-      @click="$router.go(-1)"
+      @click="$emit('click')"
     >
       <i class="fa fa-chevron-left"></i><button>{{ isLeft.label }}</button>
     </div>

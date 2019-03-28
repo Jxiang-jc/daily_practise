@@ -51,6 +51,11 @@ const router = new Router({
   ]
 })
 
+Router.prototype.go = function (n) {
+  this.isBack = true
+  window.history.go(n)
+}
+
 // 全局路由守卫
 router.beforeEach((to, from, next) => {
   // const isLogin = localStorage.ele_login ? true : false

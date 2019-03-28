@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import BScroll from "better-scroll"
+import BScroll from 'better-scroll'
 export default {
   name: 'Alphaber',
   data () {
@@ -85,6 +85,10 @@ export default {
       let el = citylist[index]
 
       // 利用bscroll滚动到对应位置
+      if (!this.scroll) {
+        this.initScroll()
+        return
+      }
       this.scroll.scrollToElement(el, 500)
     }
   }

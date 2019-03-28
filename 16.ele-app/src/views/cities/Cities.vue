@@ -1,45 +1,53 @@
 <template>
-  <div class="cities">
-    <!-- 头部 -->
-    <address-header title="城市选择"
-      :isLeft="isLeft"
-    ></address-header>
-    <!-- 搜索框 -->
-    <div class="search_box">
-      <div class="search">
-        <i class="fa fa-search"></i>
-        <input type="text" v-model="city_val" placeholder="输入城市名或拼音" />
-        <button v-show="city_val !==''">x</button>
-      </div>
+  <!-- <transition name="slide-fade"> -->
+    <div class="cities">
+        <!-- 头部 -->
+        <address-header title="城市选择"
+          :isLeft="isLeft"
+          @click="$router.go(-1)"
+        ></address-header>
+        <!-- 搜索框 -->
+        <div class="search_box" key="jx2">
+          <div class="search">
+            <i class="fa fa-search"></i>
+            <input type="text" v-model="city_val" placeholder="输入城市名或拼音" />
+            <button v-show="city_val !==''"
+            @click="city_val = ''"
+            >x</button>
+          </div>
+        </div>
+        <!-- 全部城市列表 -->
+        <div class="cities_list"
+          v-show="searchList.length === 0"
+        >
+          <div class="location">
+            <!-- 当前定位 -->
+            <address-location :address="address"></address-location>
+          </div>
+          <cities-alphabet ref="area_scroll"
+            :cityInfo="cityInfo"
+            :keys="keys"
+            @selectCity="selectCity"
+          ></cities-alphabet>
+        </div>
+        <!-- 搜索城市列表 -->
+        <div v-show="searchList.length !== 0" class="search_list">
+          <ul>
+            <li v-for="(item, index) in searchList"
+              :key="index"
+              @click="selectCity(item)"
+            >{{ item.name }}</li>
+          </ul>
+        </div>
     </div>
-    <!-- 全部城市列表 -->
-    <div style="height:100%" v-if="searchList.length ==0">
-      <div class="location">
-        <!-- 当前定位 -->
-        <address-location :address="address"></address-location>
-      </div>
-      <cities-alphabet ref="allcity"
-        :cityInfo="cityInfo"
-        :keys="keys"
-        @selectCity="selectCity"
-      ></cities-alphabet>
-    </div>
-    <!-- 搜索城市列表 -->
-    <div v-else class="search_list">
-      <ul>
-        <li v-for="(item, index) in searchList"
-          :key="index"
-          @click="selectCity(item)"
-        >{{ item.name }}</li>
-      </ul>
-    </div>
-  </div>
+  <!-- </transition> -->
 </template>
 
 <script>
 import AddressHeader from '@/components/address/Header'
 import AddressLocation from '@/components/address/Location'
 import CitiesAlphabet from '@/components/address/Alphabet'
+import { setTimeout } from 'timers';
 export default {
   name: 'city',
   components: {
@@ -57,7 +65,8 @@ export default {
       cityInfo: {}, // A-Z对应的城市信息
       keys: [], // 存放 A-Z
       allCities: [], // 所有的城市
-      searchList: []
+      searchList: [],
+      // show: false  // 原本是想在当前组件使用transition的。 transition单独使用在组件内，需要搭配v-show使用 （在最外层的div添加v-show）
     }
   },
   watch: {
@@ -92,7 +101,9 @@ export default {
           this.keys.sort()
 
           this.$nextTick(() => {
-            this.$refs.allcity.initScroll()
+            if (this.$refs.area_scroll) {
+              this.$refs.area_scroll.initScroll()
+            }
           })
 
           // 存储所有城市， 用来搜索过滤
@@ -101,7 +112,6 @@ export default {
               this.allCities.push(city)
             })
           })
-          
         })
         .catch(err => {
           console.log('err: ', err)
@@ -109,7 +119,7 @@ export default {
     },
     // 监听子组件点击选择城市事件
     selectCity (city) {
-      this.$router.push({ name: "address", params: { city: city.name } })
+      this.$router.push({ name: 'address', params: { city: city.name } })
     },
 
     // 城市搜索框事件
@@ -120,10 +130,15 @@ export default {
       } else {
         // 根据搜索框的关键字检索城市 并存入到searchList数组中
         this.searchList = this.allCities.filter(item => {
-          return item.name.indexOf(this.city_val) != -1
+          return item.name.indexOf(this.city_val) !== -1
         })
       }
     }
+  },
+
+  mounted () {
+    // this.show = true
+    // console.log('this.$router: ', this.$router)
   }
 }
 </script>
@@ -135,6 +150,7 @@ export default {
   overflow: auto;
   box-sizing: border-box;
   padding-top: 90px;
+  position: absolute;left:0;right: 0;
   .search_box {
     position: fixed;
     top: 45px;
@@ -181,6 +197,23 @@ export default {
       border-bottom: 1px solid #eee;
     }
   }
+  .cities_list {
+    height: calc(100% - 45px);
+    // height: 100%;
+  }
+}
+.slide-fade{
+  position: absolute;left:0;right: 0;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+    transition: all 0.4s;
+}
+
+.slide-fade-enter,
+.slide-fade-leave{
+    transform: translate3d(100%, 0, 0);
 }
 
 </style>

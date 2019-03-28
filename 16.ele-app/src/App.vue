@@ -28,10 +28,11 @@ export default {
 
         function onComplete (data) {
           // data是具体的定位信息  精准定位
+          console.log('精确定位')
           console.log('data:', data)
-          self.$store.commit('SET_LOCATION', data)
+          // self.$store.commit('types.SEL_LOCATION', data)
           self.$store.commit('SEL_ADDRESS', data.formattedAddress)
-          // self.$store.dispatch('setLocation', data)
+          self.$store.dispatch('setLocation', data)
           // self.$store.dispatch('setAddress', data.formattedAddress)
         }
 
@@ -51,6 +52,7 @@ export default {
         citySearch.getLocalCity(function (status, result) {
           if (status === 'complete' && result.info === 'OK') {
             // 查询成功，result即为当前所在城市信息
+            console.log('非精确定位')
             console.log('result: ', result)
             self.adcodeGetCity(result)
           }

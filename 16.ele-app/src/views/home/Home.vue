@@ -37,7 +37,7 @@ export default {
       // home_address: state => state.address 这种写法是state才有， getter是没有的，会报错
       home_address: 'address', // 用单引号代表简写
 
-      city: 'exactLocal' // 当前精确地理位置
+      city: 'exactLocal' // 当前非精确地理位置
     }),
 
     ...mapState({

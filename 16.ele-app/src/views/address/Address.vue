@@ -1,44 +1,47 @@
 <template>
-  <div class="address">
-    <!-- 头部 -->
-    <address-header :title="title"
-      :isLeft="isLeft"
-      :isRight="isRight"
-    ></address-header>
-    <!-- 搜索框 -->
-    <div class="address_city_search">
-      <div class="address_search"
-        @click="$router.push('/city')"
-      >
-        <span class="address_city_select">
-         <span class="address_city_name">{{ city }}</span>
-          <i class="fa fa-angle-down"></i>
-        </span>
-      </div>
-      <div class="address_input">
-        <i class="fa fa-search"></i>
-        <input type="text"
-          v-model="search_val"
-          placeholder="请输入地址"
-        />
-      </div>
-    </div>
-    <!-- 当前定位 -->
-    <address-location :address="address"></address-location>
-
-    <!-- 搜索显示列表 -->
-    <div class="area" ref="container" v-show="areaList.length > 0">
-      <ul class="area_list">
-        <li v-for="(item,index) in areaList"
-          :key="index"
-          @click="selectAddress(item)"
+    <div class="address">
+      <!-- 头部 -->
+      <address-header :title="title"
+        :isLeft="isLeft"
+        :isRight="isRight"
+        @click="$router.go(-1)"
+      ></address-header>
+      <!-- 搜索框 -->
+      <div class="address_city_search">
+        <div class="address_search"
+          @click="$router.push('/city')"
         >
-          <h4>{{ item.name}}</h4>
-          <p>{{ item.district }}{{ item.address}}</p>
-        </li>
-      </ul>
+          <span class="address_city_select">
+          <span class="address_city_name">{{ city }}</span>
+            <i class="fa fa-angle-down"></i>
+          </span>
+        </div>
+        <div class="address_input">
+          <i class="fa fa-search"></i>
+          <input type="text"
+            v-model="search_val"
+            placeholder="请输入地址"
+          />
+        </div>
+      </div>
+      <!-- 当前定位 -->
+      <address-location :address="address"
+        @click="selectAddress"
+      ></address-location>
+
+      <!-- 搜索显示列表 -->
+      <div class="area" ref="container" v-show="areaList.length > 0">
+        <ul class="area_list">
+          <li v-for="(item,index) in areaList"
+            :key="index"
+            @click="selectAddress(item)"
+          >
+            <h4>{{ item.name}}</h4>
+            <p>{{ item.district }}{{ item.address}}</p>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -55,6 +58,7 @@ export default {
   },
   computed: {
     address () {
+      console.log('this.$store.getters.location', this.$store.getters.location)
       return this.$store.getters.location.formattedAddress
     }
   },
@@ -95,7 +99,7 @@ export default {
         autoComplete.search(self.search_val, function (status, result) {
           // 搜索成功时，result即是对应的匹配数据
           // console.log(result);
-          self.areaList = result.tips
+          self.areaList = result.tips || []
 
           // 当数组有数据时，实例化better-scroll
           self.initBScroll()

@@ -1,7 +1,9 @@
 <template>
   <div class="location">
     <div class="location_title">当前定位</div>
-    <div class="location_des">
+    <div class="location_des"
+      @click="$emit('click')"
+    >
       <i class="fa fa-location-arrow"></i>
       <span>{{ address }}</span>
     </div>
@@ -25,7 +27,7 @@ export default {
 .location {
   background: #eee;
   .location_title {
-    margin: 20px 0 10px 15px;
+    padding: 20px 0 10px 15px;
     font-size: 14px;
   }
   .location_des {
