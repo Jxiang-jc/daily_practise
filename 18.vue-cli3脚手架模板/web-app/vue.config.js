@@ -26,7 +26,7 @@ module.exports = {
   },
   // 设置vue运行的目录地址
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/production-sub-path/' // 发布路径一般配置为production-sub-path
+    ? './' // 发布路径一般配置为./
     : '/', // 开发服务器默认路径为根目录
   devServer: {
     // disableHostCheck: true,
