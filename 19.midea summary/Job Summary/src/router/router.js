@@ -28,6 +28,16 @@ export default new Router({
       path: '/moment', // 格式化时间类库
       name: 'Moment',
       component: () => import('../views/Moment')
+    },
+    {
+      path: '/filter', // 过滤器使用
+      name: 'Filter',
+      component: () => import('../views/Filter')
+    },
+    {
+      path: '/directive', // 自定义指令的使用
+      name: 'Directive',
+      component: () => import('../views/Directive')
     }
   ]
 })
