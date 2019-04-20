@@ -79,17 +79,20 @@
 		
 		};
 
+	// A central reference to the root jQuery(document)
 	var rootjQuery,
 
-		
-	init = jQuery.fn.init = function( selector, context, root ) {
-		// 创建对象
-		return []
-	}
-	
+
+		init = jQuery.fn.init = function( selector, context, root ) {
+
+
+		};
+
+	// Give the init function the jQuery prototype for later instantiation
 	init.prototype = jQuery.fn;
 
-	rootjQuery = jQuery(document)
+	// Initialize central reference
+	rootjQuery = jQuery( document );
 
 
 
@@ -111,3 +114,15 @@
 // 浏览器环境下 全局是window
 // node环境下 全局是module
 // 作者想要告诉，jq不一定要运行在浏览器， 也就是不管在任何环境运行， global都能指上下文
+
+// 源码阅读的技巧
+
+// 1.了解目标架构的应用， 熟知它的问题域， 从注释入手是个不错的选择
+
+// 2. 先整体再局部的思维， 不要试图一次看懂所有代码
+
+// 3. 通过函数和属性名字揣摩代码意图， 大胆设想， 小心求证
+
+// 4. 代码块内容较多时， 只先关注入口（参数）和出口（返回值）
+
+// 5. 选择目标时由易到难， 循序渐进
