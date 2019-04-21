@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery UI Dialog - Default functionality</title>
+  <!-- 1.引入组件ui的css -->
+  <link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
+  <!-- 2. 导入组件ui的js -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+  <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+  <!-- 3.组件HTML模板代码 -->
+  <div id="dialog" title="Basic dialog">
+    <p>This is the default dialog which is useful for displaying information.</p>
+  </div>
+  <script>
+  /* 4. 调用渲染组件的js初始化代码 */
+  $(function () {
+    $('#dialog').dialog() // 通过id为dialog实例化dialog对象
+  })
+  </script>
+</body>
+</html>

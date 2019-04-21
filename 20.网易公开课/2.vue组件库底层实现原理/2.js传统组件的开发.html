@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .ne-dialog {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      border: 1px solid #757575;
+      border-radius: 3px;
+      padding: 3px;
+      background: #f1efef;
+      margin-left: -100px;
+      margin-top: -50px;
+    }
+    .ne-dialog-title {
+      display: block;
+      height: 25px;
+      line-height: 25px;
+      color: #fff;
+      background: #757575;
+      border-radius: 3px;
+      text-indent: 10px;
+      cursor: pointer;
+    }
+    .ne-dialog-content {
+      padding: 10px;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 2.html -->
+  <div id="nedialog">
+    这是dialog中间的内容！这是dialog中间的内容！这是dialog中间的内容！这是dialog中间的内容！这是dialog中间的内容！这是dialog中间的内容！这是dialog中间的内容！
+  </div>
+  <!-- 3.js -->
+  <script>
+    // 创建闭包
+    ;(function (global, factory, plug) {
+      global[plug] = factory.call(global)
+    })(this, function () {
+      // this === global
+      var __O__ = {
+        el: document.createElement('div'),
+        dom: document.createElement('div'),
+        title: '',
+        close: true
+      };
+
+      var __E__ = function (s, t) {
+        for (var p in t) {
+          s[p] = t[p];
+        }
+        return s;
+      }
+
+      var __C__ = function (ops) {
+        this.ops = this.extends(__O__, ops);
+        this.init();
+        this.render();
+      }
+
+      __C__.prototype = {
+        extends: __E__,
+        init: function () {
+          this.dom = this.ops.dom;
+          this.el = this.ops.el;
+          this.dom.classList.add('ne-dialog');
+          this.el.classList.add('ne-dialog-content');
+        },
+        render: function () {
+          this.dom.innerHTML = `<span class="ne-dialog-title">${this.ops.title}</span>`;
+          this.dom.appendChild(this.el);
+          document.body.appendChild(this.dom);
+        },
+        bind: function () {}
+      };
+      return __C__;
+    }, 'NetEaseDialog');
+  
+  </script>
+  <!-- 4.js -->
+  <script>
+    window.onload = function () {
+      // var nedialog = document.getElementById('nedialog')
+      // 如果是id， 可以直接引用
+      var dialog = new NetEaseDialog({
+        el: nedialog,
+        title: 'Jxiang Dialog'
+      }) // 显示出来组件dialog
+
+    }
+  </script>
+</body>
+</html>
