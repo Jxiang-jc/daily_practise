@@ -1,0 +1,46 @@
+<template>
+  <style>
+    .color {
+      color: red;
+    }
+  </style>
+  <p>
+    My favorite colour is: <strong class="color">Red</strong>
+  </p>
+</template>
+<script>
+  // 创建闭包
+  (function () {
+    var element = Object.create(HTMLElement.prototype); // 基于HTML元素的原型创建对象
+    // console.log(div.constructor); // HTMLDivElement.prototype
+    // console.log(span.constructor); // HTMLSpanElement.prototype
+    // console.log(link.constructor); // HTMLAnchorElement.prototype link href
+    // 结论： 只要基于HTMLElement.prototype, 都可以看作是一个元素
+
+    // document指的的是上下文html的dom
+    // document.currentScript.ownerDocument 指的是当前html的dom
+    var template = document.currentScript.ownerDocument.querySelector('template').content;
+
+    element.createdCallback = function () {
+      var shadowRoot = this.createShadowRoot(); // 创建shadow root 节点
+
+      var clone = document.importNode(template, true);
+
+      shadowRoot.appendChild(clone); // 添加模板克隆对象到shadow root中
+    };
+    document.registerElement('netease-color', {
+      // 注册新组件
+      prototype: element
+    })
+  })();
+</script>
+
+<!-- 
+  1. template组件html模板
+  2. 创建闭包
+  3. 基于HTML Element原型创建对象
+  4. 设置生命周期回调函数
+  5. 创建影子根对象
+  6. 注册web component标签
+
+ -->
