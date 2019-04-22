@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .show_box {
   font-size: 3em;
   color: #58bc58;

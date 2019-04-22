@@ -38,6 +38,11 @@ export default new Router({
       path: '/directive', // 自定义指令的使用
       name: 'Directive',
       component: () => import('../views/Directive')
+    },
+    {
+      path: '/toast', // 自定义弹窗提示
+      name: 'toast',
+      component: () => import('../views/Toast')
     }
   ]
 })

@@ -42,11 +42,19 @@ module.exports = {
     }
   },
   configureWebpack: {
-    devtool: 'source-map' // 用来解决js报错时查找错误文件
-  },
-  chainWebpack: config => {
-    config.resolve.alias
-      .set('@', resolve('src')) // key,value自行定义，比如.set('@@', resolve('src/components'))
-      .set('_c', resolve('src/components'))
+    devtool: 'source-map', // 用来解决js报错时查找错误文件
+    resolve: {
+      alias: {
+        '@': resolve('src'),
+        '_c': resolve('src/components'),
+        'vue$': 'vue/dist/vue.esm.js'
+      }
+    }
   }
+  // chainWebpack: config => {
+  //   config.resolve.alias
+  //     .set('@', resolve('src')) // key,value自行定义，比如.set('@@', resolve('src/components'))
+  //     .set('_c', resolve('src/components'))
+  //     // .set('vue$', resolve('vue/dist/vue.js'))
+  // }
 }

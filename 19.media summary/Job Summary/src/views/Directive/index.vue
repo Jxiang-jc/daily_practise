@@ -66,7 +66,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .demo {
   font-size: 2em;
   color: #4d63bc;
