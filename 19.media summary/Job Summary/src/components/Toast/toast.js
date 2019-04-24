@@ -2,12 +2,8 @@ import ToastComponent from './toast.vue'
 
 const Toast = {}
 
-let removeDom = event => {
-  event.target.parentNode.removeChild(event.target)
-}
 // 注册Toast
 Toast.install = function (Vue) {
-  console.log('removeDom', removeDom)
   // 生成一个Vue的子类
   // 同时这个子类也就是组件
   const ToastConstructor = Vue.extend(ToastComponent)
@@ -16,7 +12,8 @@ Toast.install = function (Vue) {
 
   // 将这个实例挂载在我创建的div上
   // 并将此div加入全局挂载点内部
-  instance.$mount(document.createElement('div'))
+  instance.$mount(
+    document.createElement('div'))
   document.body.appendChild(instance.$el)
 
   // 通过Vue的原型注册一个方法

@@ -5,8 +5,8 @@
 
     <!-- 进阶版 -->
     <button @click="openTop()">top</button>
-    <button @click="openCenter()">center</button>
-    <button @click="openBottom()">bottom</button>
+    <!-- <button @click="openCenter()">center</button> -->
+    <!-- <button @click="openBottom()">bottom</button> -->
   </div>
 </template>
 
@@ -18,14 +18,15 @@ export default {
       this.$toast('Jxiang')
     },
     openTop () {
-      this.$toast2.top('top')
+      console.log(this.$toast2)
+      this.$toast2.top('topopo地方')
     },
-    openCenter () {
-      this.$toast2.center('center')
-    },
-    openBottom () {
-      this.$toast2('bottom') // or this.$toast.bottom('bottom');
-    }
+    // openCenter () {
+    //   this.$toast2.center('center')
+    // },
+    // openBottom () {
+    //   this.$toast2('bottom') // or this.$toast.bottom('bottom');
+    // }
   }
   // beforeRouteLeave (to, from, next) {
   //   this.$hideToast()

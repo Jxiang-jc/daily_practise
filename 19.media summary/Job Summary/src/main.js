@@ -14,10 +14,10 @@ import FastClick from 'fastclick'
 import Toast from './components/Toast/toast'
 // 自定义弹窗进阶版
 import './components/Toast2/toast.css'
-import Toast2 from './components/Toast2/toast'
+import Toast2 from './components/Toast2/index'
 
 Vue.use(Toast)
-Vue.use(Toast2)
+Vue.use(Toast2, 'aaa')
 
 // 注册全局过滤器
 Object.keys(filter).forEach(key => {
