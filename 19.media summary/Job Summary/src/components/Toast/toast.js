@@ -18,7 +18,7 @@ Toast.install = function (Vue) {
 
   // 通过Vue的原型注册一个方法
   // 让所有实例共享这个方法
-  Vue.prototype.$toast = (msg, duration = 5000) => {
+  Vue.prototype.$toast = (msg, duration = 2500) => {
     instance.message = msg
     instance.show = true
 

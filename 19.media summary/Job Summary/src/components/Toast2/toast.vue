@@ -1,7 +1,7 @@
 <template>
   <div v-show="show"
-    class="lx-toast"
-    :class="{'lx-word-wrap': wordWrap, type}"
+    class="jx-toast"
+    :class="[{'jx-word-wrap': wordWrap}, type]"
     :style="{width: widthStyle}"
   >
     {{tips}}
@@ -12,11 +12,11 @@
 export default {
   data () {
     return {
-      show: false,
-      tips: '',
+      show: false, // 初始化时是否显示
+      tips: '', // 提示内容
       type: '', // 弹窗出现的位置
       wordWrap: false, // 是否换行
-      width: ''
+      width: '' // 用于换行时, 配合worWrap是使用
     }
   },
   computed: {

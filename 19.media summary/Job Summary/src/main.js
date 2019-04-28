@@ -17,7 +17,7 @@ import './components/Toast2/toast.css'
 import Toast2 from './components/Toast2/index'
 
 Vue.use(Toast)
-Vue.use(Toast2, 'aaa')
+Vue.use(Toast2)
 
 // 注册全局过滤器
 Object.keys(filter).forEach(key => {

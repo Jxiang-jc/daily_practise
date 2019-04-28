@@ -25,6 +25,13 @@ Toast.install = function (Vue, options) {
   // opt = Object.assign(opt, options)
   Object.assign(opt, options)
 
+  /**
+   *
+   *
+   * @param { 文字提示 } tips
+   * @param { 出现的问题 bootom center top } type
+   * @returns
+   */
   Vue.prototype.$toast2 = function (tips, type) {
     let curType = type !== undefined ? type : opt.defaultType
     let wordWrap = opt.wordWrap === true
@@ -35,6 +42,9 @@ Toast.install = function (Vue, options) {
     }
 
     if (!toastVM) {
+      // Vue.extend 返回的是一个“扩展实例构造器”,
+      // 也就是一个预设了部分选项的 Vue 实例构造器
+      // 后可使用vue.component进行实例化、或使用new extendName().$mount(''+el)方式进行实例化（从而实现模拟组件）。
       let ToastTpl = Vue.extend(ToastComponent)
 
       toastVM = new ToastTpl()
