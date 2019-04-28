@@ -1,4 +1,6 @@
 
+import clamp from './clamp'
+
 export default {
   /**
    * 钩子函数 bind update
@@ -6,6 +8,7 @@ export default {
    * v-check="{type:'date',val:currentDate}"
    */
   check (el, binding) {
+
     // 获取当前的值
     // console.log(binding.value)
     if (binding.oldValue && binding.oldValue.val) {
@@ -55,12 +58,18 @@ export default {
   demo (el, binding, vnode) {
     var s = JSON.stringify
     el.innerHTML =
-      'v-demo:foo.a.b="message"' + '<br/><br/>' +
-      'name: ' + s(binding.name) + '<br>' +
-      'value: ' + s(binding.value) + '<br>' +
-      'expression: ' + s(binding.expression) + '<br>' +
-      'argument: ' + s(binding.arg) + '<br>' +
-      'modifiers: ' + s(binding.modifiers) + '<br>' +
-      'vnode keys: ' + Object.keys(vnode).join(', ')
-  }
+      'v-demo:foo.a.b="message"' + '<br/><br/>        ' +
+      '<span style="color: red;"> name: </span>       ' + s(binding.name) + '<br>' +
+      '<span style="color: red;">value:</span>        ' + s(binding.value) + '<br>' +
+      '<span style="color: red;"> expression: </span> ' + s(binding.expression) + '<br>' +
+      '<span style="color: red;">argument: </span>    ' + s(binding.arg) + '<br>' +
+      '<span style="color: red;">modifiers: </span>   ' + s(binding.modifiers) + '<br>' +
+      '<span style="color: red;">vnode keys: </span>  ' + Object.keys(vnode).join(', ')
+  },
+
+  /*
+   * 多行文本溢出
+   * v-clamp 默认是1行省略
+  */
+  clamp: clamp
 }

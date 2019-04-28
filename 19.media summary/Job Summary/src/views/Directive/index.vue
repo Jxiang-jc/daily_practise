@@ -7,7 +7,8 @@
     <div v-demo:foo.a.b="message" class="demo">
     </div>
     <br>
-    <div class="check_box">
+    <hr/>
+    <div class="check_box" style="width: 500px; height: 350px;">
       <input
         type="text"
         v-check="{type:'phone',val:currentPhone}"
@@ -39,6 +40,11 @@
         v-model="currentZipCode"
       >
     </div>
+    <br>
+    <hr/>
+    <div v-clamp style="color:#58bc58;">这是默认文本溢出省略(1行省略).这是默认文本溢出省略(1行省略).这是默认文本溢出省略(1行省略).这是默认文本溢出省略(1行省略)</div>
+    <br>
+    <div v-clamp="2" style="color:#4d63bc;">这是设置2行溢出省略.这是设置2行溢出省略.这是设置2行溢出省略.这是设置2行溢出省略.这是设置2行溢出省略.这是设置2行溢出省略这是设置2行溢出省略这是设置2行溢出省略这是设置2行溢出省略这是设置2行溢出省略这是设置2行溢出省略这是设置2行溢出省略</div>
   </div>
 </template>
 
@@ -68,7 +74,7 @@ export default {
 
 <style scoped>
 .demo {
-  font-size: 2em;
+  font-size: 1.5em;
   color: #4d63bc;
   text-align: left;
   width: 50%;
