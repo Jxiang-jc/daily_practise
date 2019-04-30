@@ -1,5 +1,6 @@
 
 import clamp from './clamp'
+import clickoutside from './clickoutside'
 
 export default {
   /**
@@ -8,7 +9,6 @@ export default {
    * v-check="{type:'date',val:currentDate}"
    */
   check (el, binding) {
-
     // 获取当前的值
     // console.log(binding.value)
     if (binding.oldValue && binding.oldValue.val) {
@@ -71,5 +71,8 @@ export default {
    * 多行文本溢出
    * v-clamp 默认是1行省略
   */
-  clamp: clamp
+  clamp: clamp,
+
+  /* 点击外面触发函数 */
+  clickoutside: clickoutside
 }

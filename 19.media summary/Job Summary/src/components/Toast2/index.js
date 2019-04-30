@@ -53,7 +53,7 @@ Toast.install = function (Vue, options) {
       document.body.appendChild(tpl)
     }
 
-    toastVM.type = 'lx-toast-' + curType
+    toastVM.type = 'jx-toast-' + curType
     toastVM.wordWrap = wordWrap
     toastVM.tips = tips
     toastVM.show = showToast = true

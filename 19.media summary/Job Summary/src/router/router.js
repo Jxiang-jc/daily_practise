@@ -43,6 +43,11 @@ export default new Router({
       path: '/toast', // 自定义弹窗提示
       name: 'toast',
       component: () => import('../views/Toast')
+    },
+    {
+      path: '/clickoutside', // 在外部点击触发，内部点击不生效
+      name: 'clickoutside',
+      component: () => import('../views/Clickoutside')
     }
   ]
 })
