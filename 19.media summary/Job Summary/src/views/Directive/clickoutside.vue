@@ -1,5 +1,5 @@
 <template>
-  <div class="main" v-clickoutside="handleClose">
+  <div class="main" v-clickoutside.esc="handleClose">
     <button @click="show = !show">点击显示下拉列表</button>
     <div class="dropdown" v-show="show">
       <p>下拉框的内容，点击外面区域可以关闭</p>

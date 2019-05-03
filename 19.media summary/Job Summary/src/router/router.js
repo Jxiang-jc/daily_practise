@@ -47,7 +47,12 @@ export default new Router({
     {
       path: '/clickoutside', // 在外部点击触发，内部点击不生效
       name: 'clickoutside',
-      component: () => import('../views/Clickoutside')
+      component: () => import('../views/Directive/clickoutside')
+    },
+    {
+      path: '/time',
+      name: 'time',
+      component: () => import('../views/Directive/time')
     }
   ]
 })

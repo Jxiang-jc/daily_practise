@@ -1,6 +1,9 @@
 
 import clamp from './clamp'
 import clickoutside from './clickoutside'
+import timeFormat from './time'
+import birthday from './birthday'
+
 
 export default {
   /**
@@ -74,5 +77,11 @@ export default {
   clamp: clamp,
 
   /* 点击外面触发函数 */
-  clickoutside: clickoutside
+  clickoutside: clickoutside,
+	
+	/* 实时时间转换指令 */
+	time: timeFormat,
+	
+	/* 出生时间转换指令 */
+	birthday: birthday
 }
