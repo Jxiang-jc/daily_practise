@@ -258,7 +258,7 @@ findUserByName(name)
 ```
 > &nbsp;&nbsp; 在上面的代码中，实例化了三个 promise 对象，分别实现业务需求中的三个功能。然后通过 promise 方法链来调用。相比用回调函数而言，代码结构更加清晰，也更易读易懂耦合度更低更易扩展了。
 
-## Promise.all && Promise.race
+## Promise.all
 <hr/>
 
 > 仔细观察可以发现，在上面的 promise 代码中，loginEducationSystem 和 saveUserToDB 两个方法执行有先后顺序要求，但没有数据传递。
