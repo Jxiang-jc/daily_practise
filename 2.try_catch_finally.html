@@ -14,12 +14,18 @@
     
     try {
         // document.body.innerHTML = '<div style="width: 100px; height: 100px; background: #58bc58"></div>'
-        document.write(array[0])
+        document.write(array[0]);
+		
+		// throw 可自定义抛出错误, 并在catch中. err显示
+		// var bol = false;
+		// !bol && throw('这是自定义抛出错误')
     } catch (err) {
-        document.writeln('Error name: ' + err.name + '<br/>') // TypeError
-        document.writeln('Error message: ' + err.message) //  Cannot read property '0' of null
+        document.writeln('Error name: ' + err.name + '<br/>'); // TypeError
+        document.writeln('Error message: ' + err.message); //  Cannot read property '0' of null
+		
+		// console.log('err', err)
     } finally {
-        alert('object is null')
+        alert('object is null');
     }
 
     /* 

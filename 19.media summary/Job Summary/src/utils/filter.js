@@ -1,6 +1,6 @@
 const filters = {
   /**
-   * 传入毫秒，格式化使劲啊
+   * 传入毫秒，格式化时间
    *
    * @param {*} second 毫秒数(时间戳)
    * @param {*} fmt 格式， 常见： 'yyyy-MM-dd hh:mm:ss'、 'yyyy-M-d h:m:s'

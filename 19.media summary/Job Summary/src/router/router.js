@@ -41,18 +41,28 @@ export default new Router({
     },
     {
       path: '/toast', // 自定义弹窗提示
-      name: 'toast',
+      name: 'Toast',
       component: () => import('../views/Toast')
     },
     {
       path: '/clickoutside', // 在外部点击触发，内部点击不生效
-      name: 'clickoutside',
+      name: 'Clickoutside',
       component: () => import('../views/Directive/clickoutside')
     },
     {
       path: '/time',
-      name: 'time',
+      name: 'Time',
       component: () => import('../views/Directive/time')
-    }
+    },
+		{
+			path: '/search', // 封装搜索框
+			name: 'Search',
+			component: () => import('../views/SearchPage/index')
+		},
+		{
+			path: '/search/searchItem', // 搜索页
+			name: 'SearchItem',
+			component: () => import('../views/SearchPage/search')
+		}
   ]
 })

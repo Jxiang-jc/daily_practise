@@ -4,7 +4,7 @@ import router from './router/router'
 import store from './store/store'
 import filter from './utils/filter' // 全局过滤器
 import directives from './directives' // 自定义指令
-
+import './assets/icon/iconfont.css'
 import 'lib-flexible'
 
 // 解决300毫秒延迟
