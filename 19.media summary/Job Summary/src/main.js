@@ -6,7 +6,13 @@ import filter from './utils/filter' // 全局过滤器
 import directives from './directives' // 自定义指令
 import './assets/icon/iconfont.css'
 import 'lib-flexible'
-
+import Storage from './utils/storage.js'; // storage二次封装
+// console.log('Storage', Storage)
+const ls = Storage()
+ls.set('jx', 99)
+console.log(ls.get('jx'))
+console.log(ls.delete('jx'))
+console.log(ls.get('jx'))
 // 解决300毫秒延迟
 import FastClick from 'fastclick'
 
@@ -28,6 +34,7 @@ Object.keys(filter).forEach(key => {
 Object.keys(directives).forEach(key => {
   Vue.directive(key, directives[key])
 })
+
 
 FastClick.attach(document.body)
 

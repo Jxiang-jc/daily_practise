@@ -4,16 +4,17 @@
 // localStorage 和 sessionStoage 的二次封装
 let storage = {
   // 默认是localStorage
-  get(key, isLocalStorage = true) {
+  get (key, isLocalStorage = true) {
     if (!key) return null
-    let _storage = isLocalStorage ? localStorage : sessionStorage,
-    props = key.split('.'),
-    k = props.shift(),
-    itemStr = _storage.getItem(k),
-    itemObj = null
+    let _storage = isLocalStorage ? localStorage : sessionStorage
+    let props = key.split('.')
+    let k = props.shift()
+    let itemStr = _storage.getItem(k)
+    let itemObj = null
+
     try {
       itemObj = JSON.parse(itemStr)
-      if (typeof itemObj != 'object') throw ('Not an object!')
+      if (typeof itemObj !== 'object') throw new Error('Not an object!')
     } catch (e) {
       return props.length ? null : itemStr
     }
@@ -22,24 +23,24 @@ let storage = {
     }
     return itemObj
   },
-  set(key, value, isLocalStorage = true) {
+  set (key, value, isLocalStorage = true) {
     if (!key) return
-    let _storage = isLocalStorage ? localStorage : sessionStorage,
-    props = key.split('.'),
-    k = props.shift()
+    let _storage = isLocalStorage ? localStorage : sessionStorage
+    let props = key.split('.')
+    let k = props.shift()
     if (!props.length) {
       if (typeof value === 'object') value = JSON.stringify(value)
       _storage.setItem(k, value)
       return
     }
-    let itemStr = _storage.getItem(k),
-    itemObj = null
+    let itemStr = _storage.getItem(k)
+    let itemObj = null
     if (itemStr) {
       try {
         itemObj = JSON.parse(itemStr)
-        if (typeof itemObj != 'object') throw ('Not an object!')
+        if (typeof itemObj !== 'object') throw new Error('Not an object!')
       } catch (e) {
-        throw ('storage.set: key ' + k + ' 已被占用并且不是一个对象，无法为其设置属性值')
+        throw new Error('storage.set: key ' + k + ' 已被占用并且不是一个对象，无法为其设置属性值')
       }
     }
     let copy = itemObj = itemObj || {}
@@ -51,13 +52,13 @@ let storage = {
     copy[props[0]] = value
     _storage.setItem(k, JSON.stringify(itemObj))
   },
-  
+
   remove (key, isLocalStorage = true) {
     if (!key) return
     let _storage = isLocalStorage ? localStorage : sessionStorage
     _storage.removeItem(key)
   },
-  
+
   clear (isLocalStorage = true) {
     let _storage = isLocalStorage ? localStorage : sessionStorage
     _storage.clear()
@@ -65,8 +66,9 @@ let storage = {
 }
 
 let methods = {
-  isIOS() {
-    let isIphone, ua = navigator.userAgent.toLowerCase()
+  isIOS () {
+    let isIphone
+    let ua = navigator.userAgent.toLowerCase()
     if (/iphone|ipad|ipod/.test(ua)) {
       // alert("iphone")
       isIphone = true

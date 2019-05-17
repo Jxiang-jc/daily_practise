@@ -1,6 +1,6 @@
 import axios from 'axios'
 // import qs from 'qs' 看项目需要
-import APIUrl from '@/project-config.js'
+// import APIUrl from '@/project-config.js'
 
 const service = axios.create({
   // baseURL: APIUrl.baseURL,

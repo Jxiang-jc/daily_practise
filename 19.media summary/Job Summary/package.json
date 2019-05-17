@@ -19,7 +19,8 @@
     "vue": "^2.6.6",
     "vue-countup-v2": "^3.0.1",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "web-storage-cache": "^1.0.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
