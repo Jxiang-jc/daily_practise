@@ -13,8 +13,6 @@
     root.WebStorageCache = factory()
   }
 }(this, function () {
-
-
   // https://github.com/jeromegn/Backbone.localStorage/blob/master/backbone.localStorage.js#L63
   var defaultSerializer = {
     serialize: function (item) {

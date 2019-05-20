@@ -14,6 +14,7 @@
 export default {
 	mounted () {
 		// console.log('this.$storage', this.$storage())
+		
 	}
 }
 </script>
