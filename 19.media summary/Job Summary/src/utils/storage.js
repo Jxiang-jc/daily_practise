@@ -128,7 +128,7 @@ class Storage {
 	
 	// 验证是否过期
 	_checkCacheItemIfEffective (cacheItem) {
-		console.log('cacheItem', cacheItem)
+		console.log('timeNow < cacheItem.exp;', timeNow < cacheItem.exp)
 		var timeNow = (new Date()).getTime();
 		return timeNow < cacheItem.exp;
 	}
@@ -147,7 +147,7 @@ class Storage {
 	}
 	
   set (key, val, options={}) {
-    
+    console.log
     if (!key || !val) return;
 
     key = this._checkKeyIfString(key);
@@ -159,7 +159,7 @@ class Storage {
     var value = this._serialize(val);
 	
 		var catchItem = this._cacheItemConstructor(value, options.exp)
-	console.log('value', catchItem)	
+
     try {
       this.storage.setItem(key, catchItem);
 			
@@ -188,11 +188,13 @@ class Storage {
     } catch (e) {
       return null;
     }
-		
+	console.log('value123', this._checkCacheItemIfEffective(cacheItem))	
 		// 判断是否过期，过期则删除
-		if (this._checkCacheItemIfEffective(cacheItem)) {
+		if (cacheItem && this._checkCacheItemIfEffective(cacheItem)) {
+			console.log(777)
 			return cacheItem;
 		} else {
+			console.log(888)
 			this.remove(key);
 		}
 		

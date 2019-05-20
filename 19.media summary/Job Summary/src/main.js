@@ -9,10 +9,9 @@ import 'lib-flexible'
 import Storage from './utils/storage.js'; // storage二次封装
 // console.log('Storage', Storage)
 const ls = Storage()
-ls.set('jx', 99)
+ls.set('jx', 999, {exp: 100})
 console.log('123', ls.get('jx'))
-// console.log(ls.remove('jx'))
-// console.log(ls.get('jx'))
+
 // 解决300毫秒延迟
 import FastClick from 'fastclick'
 

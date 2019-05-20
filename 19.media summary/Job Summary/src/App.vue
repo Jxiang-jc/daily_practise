@@ -8,9 +8,8 @@
   </div>
 </template>
 <script>
-// import Vue from 'vue';
-// import test from './utils/test2.js';
-// var test2 = new test()
+import Storage from './utils/storage.js'; // storage二次封装
+const ls = Storage()
 export default {
 	mounted () {
 		// console.log('this.$storage', this.$storage())
