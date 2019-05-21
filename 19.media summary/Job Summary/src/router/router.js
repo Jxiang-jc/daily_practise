@@ -63,6 +63,11 @@ export default new Router({
 			path: '/search/searchItem', // 搜索页
 			name: 'SearchItem',
 			component: () => import('../views/SearchPage/search')
+		},
+		{
+			path: '/imgUpload', // 搜索页
+			name: 'imgUpload',
+			component: () => import('../views/ImgUpload')
 		}
   ]
 })

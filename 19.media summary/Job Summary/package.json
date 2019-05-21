@@ -12,6 +12,7 @@
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
     "countup.js": "^2.0.4",
+    "exif-js": "^2.3.0",
     "fastclick": "^1.0.6",
     "lib-flexible": "^0.3.2",
     "moment": "^2.24.0",

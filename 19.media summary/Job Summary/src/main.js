@@ -6,11 +6,12 @@ import filter from './utils/filter' // 全局过滤器
 import directives from './directives' // 自定义指令
 import './assets/icon/iconfont.css'
 import 'lib-flexible'
+import exif from 'exif-js' //用于获取拍摄图片的基本信息（例如：拍摄方向）
 import Storage from './utils/storage.js'; // storage二次封装
 // console.log('Storage', Storage)
 const ls = Storage()
 ls.set('jx', 999, {exp: 100})
-console.log('123', ls.get('jx'))
+// console.log('123', ls.get('jx'))
 
 // 解决300毫秒延迟
 import FastClick from 'fastclick'
@@ -38,6 +39,7 @@ Object.keys(directives).forEach(key => {
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false
+Vue.prototype.EXIF = exif;
 
 new Vue({
   router,
