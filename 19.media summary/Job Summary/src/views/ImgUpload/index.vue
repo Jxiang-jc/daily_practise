@@ -1,7 +1,7 @@
 <template>
 	<div class="hello">
 		<h1> This is an image upload demo</h1>
-		<h3> --By &nbsp; wrx</h3>
+		<h3> --By &nbsp; wrx </h3>
 		<!-- 
 		* class: 组件样式
 		* canedit: 图片是否可编辑
