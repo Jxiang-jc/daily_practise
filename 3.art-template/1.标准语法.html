@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>标准语法 '{{}}'</title>
+</head>
+
+<body>
+    <div id="content"></div>
+
+    <!-- 
+        标准语法:
+            {{value}}               // 目前最常见的双花括号数据绑定
+            {{data.key}}            // 对象点方式
+            {{data['key']}}         // 另外一种对象处理方式
+            {{a ? b : c}}           // 三元运算
+            {{a || b}}              // 或运算  防止 undefined 报错
+            {{a + b}}               // 并列输出, 可以做运算
+            {{$data['list']}}       // 官档说是为模板一级的特殊变量，我目前看不出它跟 {{value}} 有什么不同，应用场景有待发掘
+
+        对应原始语法:
+            <%= value %>
+            <%= data.key %>
+            <%= data['key'] %>
+            <%= a ? b : c %>
+            <%= a || b %>
+            <%= a + b %>
+     -->
+    
+    <!-- template-web意思是浏览器版本  -->
+    <script src="./template-web.js"></script> 
+    <script type="text/html" id="test">
+        {{ if isAdmin }}
+            <h2>{{name}}</h2>
+            <h3>{{1 + 2}}</h3>
+        {{ /if}}    
+
+        {{$data}}
+    </script>
+
+    <script>
+        let data = {
+            _id: 1,
+            isAdmin: true,
+            name: 'Jxiang',
+            age: 23
+        }
+
+        let html = template('test', data)
+        let content = document.getElementById('content')
+        console.log('content: ', content);
+
+        content.innerHTML = html
+    </script>
+
+</body>
+
+</html>

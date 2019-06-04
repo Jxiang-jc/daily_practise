@@ -1,0 +1,16 @@
+body {
+    color: #58bc58;
+}
+
+.png {
+    background-image: url(./img/test_only_png.png); /* 6k */
+    width: 200px;
+    height: 200px
+}
+
+.jpg {
+    background-image: url(./img/test_onle_jpg.jpg);
+    background-size: cover;
+    width: 200px;
+    height: 200px
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽排序</title>
+    <style>
+        /* 拖拽时候到的背景颜色 */
+        .sortable-ghost {
+            opacity: 0.4;
+            background-color: #58bc58;
+        }
+    </style>
+    <script src="./js/Sortable.js"></script>
+</head>
+<!-- 该插件也支持删除拖拽列表的节点，主要是设置filter 参数，改参数可以设置成函数，但是设置成函数的时候不还要自己定义拖拽，显得有些麻烦，所以一般设置成class，或者是tag，设置成class和tag的时候就是做拖拽列表中含有calss，tag的节点可以点击的时候可以触发onFilter函数，触发会传递一个evt参数进来evt.item 就是class或者tag的dom节点，可以通过他们的血缘关系从而删除需要删除的节点。 -->
+
+    <!-- Editable List -->
+    <a name="e"></a>
+    <div class="container" style="margin-top: 100px">
+        <div id="filter" style="margin-left: 30px">
+            <div><div data-force="5" class="layer title title_xl">Editable list</div></div>
+
+            <div style="margin-top: -8px; margin-left: 10px" class="block__list block__list_words">
+                <ul id="editable">
+                    <li>Оля<i class="js-remove">✖</i></li>
+                    <li>Владимир<i class="js-remove">✖</i></li>
+                    <li>Алина<i class="js-remove">✖</i></li>
+                </ul>
+        </div>
+    </div>
+
+    <script>
+
+        let editable = document.getElementById('editable')
+
+        var editableList = Sortable.create(editable, {
+            animation: 150,
+            filter: '.js-remove',
+            onFilter: function (evt) {
+                console.log(evt.item)
+                evt.item.parentNode.removeChild(evt.item);
+            }
+        })
+    </script>
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            margin: 0 auto;
+            width: 800px;
+            color: brown;
+        }
+
+        h1 {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>let_const_var 的使用</h1>
+
+        <p> 1、let、const在任何情况下都优于var </p>
+        <p> 2、const一旦定义就不可改变 </p>
+        <p> 3、大部分情况下const的出场率比let高很多，所以一般建议默认使用const，除非一定要改变变量的值，再使用let。</p>
+
+        <div class="let_const">
+            <h4 style="color:black;">let 和 const 的共同点:</h4>  
+            <p> 1. 变量声明不会提前</p>
+            <p>2. 块级作用域</p>
+            <p>3. 都不允许相同作用域内多次声明同一变量</p>
+
+            <h4 style="color:black;">不同点:</h4> 
+            <p>1. const声明后无法修改值</p>
+            <p style="text-indent:2em"> | const常用于引用第三方库声明</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

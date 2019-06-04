@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3.try_catch_finally</title>
+</head>
+<body>
+    <h1>try_catch_finally</h1>
+    <script>    
+    
+    var array = null
+    
+    try {
+        // document.body.innerHTML = '<div style="width: 100px; height: 100px; background: #58bc58"></div>'
+        document.write(array[0]);
+		
+		// throw 可自定义抛出错误, 并在catch中. err显示
+		// var bol = false;
+		// !bol && throw('这是自定义抛出错误')
+    } catch (err) {
+        document.writeln('Error name: ' + err.name + '<br/>'); // TypeError
+        document.writeln('Error message: ' + err.message); //  Cannot read property '0' of null
+		
+		// console.log('err', err)
+    } finally {
+        alert('object is null');
+    }
+
+    /* 
+        执行过程: 
+            1. array[0]的时候由于没有创建array数组, array是个空对象, 程序中调用array[0]就会object is null的异常 
+            2. catch(err)语句捕获到这个异常通过err.name打印了错误类型, err.message打印了错误的详细信息
+            3. finally类似于java的finally, 无论有无异常都会执行
+    */
+    
+    </script>
+</body>
+</html>

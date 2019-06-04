@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/html" id="parentTpl">
+        <ul>
+    		{{each list}}
+    			<li>
+    				<h5>{{$value.title}}</h5>
+    				{{include 'childTpl' $value}}
+    			</li>
+			{{/each}}
+    	</ul>
+    </script>
+    <script type="text/html" id="childTpl">
+        <ul>
+    		{{each children}}
+    			<li>
+    				<h5>{{$value.title}}</h5>
+    				{{include 'childTpl' $value}}
+    			</li>
+			{{/each}}
+    	</ul>
+    </script>
+    <script src="./template-web.js"></script> 
+    <script>
+    var data = {
+        list: [{
+                title: '广东省',
+                children: [{
+                        title: '广州市',
+                        children: [{
+                            title: '越秀区',
+                        }]
+
+                    },
+                    {
+                        title: '深圳市',
+                        children: [{
+                                title: '福田区',
+                                children: [{
+                                        title: '梅林街道',
+                                        children: [
+                                            { title: '上梅林社区' },
+                                            { title: '下梅林社区' },
+                                            { title: '新兴社区' }
+                                        ]
+                                    },
+                                    { title: '香蜜湖街道' }
+                                ]
+                            },
+                            { title: '南山区' }
+                        ]
+                    },
+                    {
+                        title: '东莞市'
+                    }
+                ]
+            },
+            {
+                title: '湖南省',
+                children: [
+                	{
+                        title: '长沙市',
+                        children: [{
+                            title: '岳麓区',
+                        }]
+
+                    },
+                    {
+                        title: '株洲市'
+                    },
+                    {
+                        title: '湘潭市'
+                    }
+                ]
+            }
+        ]
+    };
+    var html = template('parentTpl', data);
+    var el = document.getElementById('test');
+    el.innerHTML = html;
+    </script>
+</body>
+
+</html>

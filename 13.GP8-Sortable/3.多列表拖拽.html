@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽排序</title>
+    <style>
+        /* 拖拽时候到的背景颜色 */
+        .sortable-ghost {
+            opacity: 0.4;
+            background-color: #58bc58;
+        }
+    </style>
+    <script src="./js/Sortable.js"></script>
+</head>
+<!-- 
+    下面demo是 从a列表拖拽到b列表, b列表拖拽到a列表 两个表互相拖拽, 主要参数是group 如果group不是对象则变成对象, 并且group不是对象则变成对象, 并且group对象的name就等于该group的值, 并且添加多个['pull', 'put'] 属性默认值是true
+
+    如果设置group {
+        pull: true, 则可以拖拽到其他列表 否则反之
+        put: true 则可以从其他列表中放数据到改列表，false则反之
+    }
+
+    group 也支持克隆, 只要把参数pull:true -> pull: clone
+-->
+
+<div class="container" style="height: 520px">
+    <div data-force="30" class="layer block" style="left: 14.5%; top: 0; width: 37%">
+        <div class="layer title">List A</div>
+        <ul id="foo" class="block__list block__list_words">
+            <li>бегемот</li>
+            <li>корм</li>
+            <li>антон</li>
+            <li>сало</li>
+            <li>железосталь</li>
+            <li>валик</li>
+            <li>кровать</li>
+            <li>краб</li>
+        </ul>
+    </div>
+
+
+    <div data-force="18" class="layer block" style="left: 58%; top: 143px; width: 40%;">
+        <div class="layer title">List B</div>
+        <ul id="bar" class="block__list block__list_tags">
+            <li>казнить</li>
+            <li>,</li>
+            <li>нельзя</li>
+            <li>помиловать</li>
+        </ul>
+    </div>
+</div>
+
+
+
+<script>
+    let foo = document.getElementById('foo')
+
+    Sortable.create(document.getElementById('foo'), {
+        group: {
+            name: "words",
+            pull: 'clone',
+            put: true
+        },
+        animation: 150, //动画参数
+        onAdd: function (evt) { //拖拽时候添加有新的节点的时候发生该事件
+            console.log('onAdd.foo:', [evt.item, evt.from]);
+        },
+        onUpdate: function (evt) { //拖拽更新节点位置发生该事件
+            console.log('onUpdate.foo:', [evt.item, evt.from]);
+        },
+        onRemove: function (evt) { //删除拖拽节点的时候促发该事件
+            console.log('onRemove.foo:', [evt.item, evt.from]);
+        },
+        onStart: function (evt) { //开始拖拽出发该函数
+            console.log('onStart.foo:', [evt.item, evt.from]);
+        },
+        onSort: function (evt) { //发生排序发生该事件
+            console.log('onSort.foo:', [evt.item, evt.from]);
+        },
+        onEnd: function (evt) { //拖拽完毕之后发生该事件
+            console.log('onEnd.foo:', [evt.item, evt.from]);
+        }
+    });
+
+
+    Sortable.create(document.getElementById('bar'), {
+        group: {
+            name: "words",
+            pull: false,
+            put: true
+        },
+        animation: 150, //动画参数
+        onAdd: function (evt) { //拖拽时候添加有新的节点的时候发生该事件
+            console.log('onAdd.foo:', [evt.item, evt.from]);
+        },
+        onUpdate: function (evt) { //拖拽更新节点位置发生该事件
+            console.log('onUpdate.foo:', [evt.item, evt.from]);
+        },
+        onRemove: function (evt) { //删除拖拽节点的时候促发该事件
+            console.log('onRemove.foo:', [evt.item, evt.from]);
+        },
+        onStart: function (evt) { //开始拖拽出发该函数
+            console.log('onStart.foo:', [evt.item, evt.from]);
+        },
+        onSort: function (evt) { //发生排序发生该事件
+            console.log('onSort.foo:', [evt.item, evt.from]);
+        },
+        onEnd: function (evt) { //拖拽完毕之后发生该事件
+            console.log('onEnd.foo:', [evt.item, evt.from]);
+        }
+    });
+</script>
+
+<body>
+
+</body>
+
+</html>
