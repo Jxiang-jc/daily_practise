@@ -35,8 +35,8 @@ let request = ({
 	duration = 3600 * 24,
 	cancelToken = new CancelToken(function executor(c) {})
 }) => {
-	let configTimeout = timeout || APPConfig.defaultRequsetParams.timeout
-	let configHeaders = headers || APPConfig.defaultRequsetParams.headers
+	let configTimeout = timeout || APPConfig.defaultRequestParams.timeout
+	let configHeaders = headers || APPConfig.defaultRequestParams.headers
 	let configApi = ''
 	let configType = 'POST'
 	
