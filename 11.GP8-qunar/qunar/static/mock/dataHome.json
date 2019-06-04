@@ -1,0 +1,638 @@
+{
+  "data": [
+    {
+      "city": "广州",
+      "swiperList": [
+        {
+          "id": "1",
+          "imgUrl": "/api/img/swiper1.jpg"
+        },
+        {
+          "id": 2,
+          "imgUrl": "/api/img/swiper2.jpg"
+        },
+        {
+          "id": 3,
+          "imgUrl": "/api/img/swiper3.jpg"
+        },
+        {
+          "id": 4,
+          "imgUrl": "/api/img/swiper4.jpg"
+        }
+      ],
+      "iconList": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+          "content": "景点门票"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
+          "content": "广州必游"
+        },
+        {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png",
+          "content": "动植物园"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png",
+          "content": "自然风光"
+        },
+        {
+          "id": 5,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png",
+          "content": "珠江夜游"
+        },
+        {
+          "id": 6,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png",
+          "content": "泡温泉"
+        },
+        {
+          "id": 7,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
+          "content": "一日游"
+        },
+        {
+          "id": 8,
+          "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/184e261814a5d07a5d3d08cd29cf590d.png",
+          "content": "长隆度假区"
+        },
+        {
+          "id": 9,
+          "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/c032ae43b15a3dac34b5e07bb0e46850.png",
+          "content": "广州塔"
+        },
+        {
+          "id": 10,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png",
+          "content": "踏青赏花"
+        }
+      ],
+      "likeList": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/201403/07/30b534b0de51ccac2906bcb6ba159988.jpg_200x200_2f08733b.jpg",
+          "title": "长隆野生动物世界",
+          "commont": "12345",
+          "price": "274",
+          "location": "广州长隆...",
+          "feature": "熊猫三胞胎与您共享欢乐时光"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1410/20/41d723daadc98045fe6b7283ba0af40c.jpg_200x200_5a05d5bc.jpg",
+          "title": "碧水湾温泉度假村",
+          "commont": "2222",
+          "price": "345",
+          "location": "从化市"
+        },
+        {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/3c/3c514c20a740128b90.water.jpg_200x200_c7102a23.jpg",
+          "title": "南沙百万葵园",
+          "commont": "3333",
+          "price": "123",
+          "location": "南沙区"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_200x200_c118d7da.jpg",
+          "title": "广州长隆旅游度假区",
+          "commont": "4444",
+          "price": "274",
+          "location": "番禺",
+          "feature": "《奔跑吧兄弟》取景地"
+        },
+        {
+          "id": 5,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1508/d9/12d379fbfee474d481da6e950b740ff3.water.jpg_200x200_4a3f867b.jpg",
+          "title": "增城金叶子温泉",
+          "commont": "5555",
+          "price": "212",
+          "location": "增城",
+          "feature": "高山温泉水疗养生，视野开阔滋养身心"
+        }
+      ],
+      "hotSales": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/201403/07/30b534b0de51ccac2906bcb6ba159988.jpg_250x250_86778c54.jpg",
+          "title": "长隆野生动物世界",
+          "price": "272.9"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/201405/27/ef08b0cb4a5afb2f570e5c4dff5f743e.jpg_250x250_2e9029da.jpg",
+          "title": "长隆国际大马戏剧院",
+          "price": "319"
+        },
+        {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1707/88/889ae02b07140066a3.img.jpg_250x250_d4ca7f0a.jpg",
+          "title": "长隆欢乐世界",
+          "price": "139.9"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/ee/ee2fb567add7969390.water.jpg_250x250_9f556831.jpg",
+          "title": "广州塔",
+          "price": "75"
+        },
+        {
+          "id": 5,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1809/56/5639ccfd58c4cca4a3.img.png_250x250_e8f9a22a.png",
+          "title": "广州正佳极地海洋世界",
+          "price": "75"
+        },
+        {
+          "id": 6,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/201212/31/309a88f591369b6893835fbb.png_250x250_19f299f9.png",
+          "title": "广东科学中心",
+          "price": "48"
+        },
+        {
+          "id": 7,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_250x250_787a066a.jpg",
+          "title": "广州长隆旅游度假区",
+          "price": "93.01"
+        },
+        {
+          "id": 8,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/201403/07/1faf03354267996c8b039aa15290377b.jpg_250x250_0e19ad91.jpg",
+          "title": "天适樱花悠乐园",
+          "price": "51"
+        },
+        {
+          "id": 9,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/1c/1c67791edbe2677b90.img.jpg_250x250_8f1dcbbd.jpg",
+          "title": "珠江夜游",
+          "price": "145"
+        },
+        {
+          "id": 10,
+          "imgUrl": "http://img1.qunarzz.com/sight/p51/201211/00/c4d081fb6347029f93835fbb.jpg_250x250_951bf3af.jpg",
+          "title": "珠江夜游天字码头",
+          "price": "55"
+        }
+      ],
+      "vacationList": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1811/15/66f14e0fd6fbb.jpg_r_640x214_5d69f21d.jpg",
+          "title": "清远周边逛",
+          "msg": "人人都有一双发现美的眼睛，身边的事物最熟悉不过，那你可曾发现了被人遗漏的美？"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1811/b8/5d599bbdcf8b57.jpg_r_640x214_2ee055e3.jpg",
+          "title": "浮在海上的绿洲",
+          "msg": "南国滨海之城，避寒胜地，有暖暖的阳光，海风习习，吃着海鲜逛逛老街多惬意啊"
+        },
+         {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1812/fe/208e0360d686b8.jpg_r_640x214_7b9e6607.jpg",
+          "title": "广州泡汤圣地",
+          "msg": "解压之地，放松自己，来一段轻松的旅程。"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1811/f8/29dfa785277839.jpg_r_640x214_7d051523.jpg",
+          "title": "阳江温泉知多少",
+          "msg": "这里的天空和大海让人心旷神怡，配上舒缓的优美音乐，泡个暖暖的温泉岂不美哉"
+        }
+      ]
+    },
+    {
+      "city": "北京",
+      "swiperList": [
+        {
+          "id": "1",
+          "imgUrl": "/api/img/swiper1.jpg"
+        },
+        {
+          "id": 2,
+          "imgUrl": "/api/img/swiper2.jpg"
+        },
+        {
+          "id": 3,
+          "imgUrl": "/api/img/swiper3.jpg"
+        },
+        {
+          "id": 4,
+          "imgUrl": "/api/img/swiper4.jpg"
+        }
+      ],
+      "iconList": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+          "content": "景点门票"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
+          "content": "一日游"
+        },
+        {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
+          "content": "北京必游"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png",
+          "content": "溜娃儿"
+        },
+        {
+          "id": 5,
+          "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20191/0334cf5430b9b5505fd79e2b8d7e8670.png",
+          "content": "爬长城"
+        },
+        {
+          "id": 6,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/6c/9e54a8540fee0102.png",
+          "content": "故宫"
+        },
+        {
+          "id": 7,
+          "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/338c5b924c5809e8c7b14f60a953c3e2.png",
+          "content": "北京欢乐谷"
+        },
+        {
+          "id": 8,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png",
+          "content": "踏青赏花"
+        },
+        {
+          "id": 9,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/67/9a1678221b8e0e02.png",
+          "content": "古水北镇"
+        },
+        {
+          "id": 10,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png",
+          "content": "动植物园"
+        }
+      ],
+      "likeList": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1508/fe/434ee530e21f1c11bad088e8cc8d5e93.water.jpg_200x200_912ce9f4.jpg",
+          "title": "鸟巢",
+          "commont": "12345",
+          "price": "274",
+          "location": "奥林匹克...",
+          "feature": "北京的地标，中华民族崛起的象征"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
+          "title": "故宫",
+          "commont": "2222",
+          "price": "345",
+          "location": "东城区",
+          "feature": "世界五大宫之首，穿越与您近在咫尺"
+        },
+        {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1709/e4/e48857f2ce5e53a7a3.img.jpg_200x200_8ee069fe.jpg",
+          "title": "远去的恐龙",
+          "commont": "3333",
+          "price": "123",
+          "location": "朝阳区",
+          "feature": "一部不可思议的巨制演艺作品"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1507/36/ce3d2d6c9ab44d67ae68d940b8781829.water.jpg_200x200_0938a8f2.jpg",
+          "title": "北京野生动物园",
+          "commont": "4444",
+          "price": "274",
+          "location": "大兴区",
+          "feature": "敢与森林之王近距离接触吗？"
+        },
+        {
+          "id": 5,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/ad/ad84d5339c3a34f390.water.jpg_200x200_788cb0d2.jpg",
+          "title": "十渡风景区",
+          "commont": "5555",
+          "price": "212",
+          "location": "房山区",
+          "feature": "这里最近很火哦，好多人都在点评它呢！"
+        }
+      ],
+      "hotSales": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg",
+          "title": "故宫",
+          "price": "272.9"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_250x250_50c99cf3.jpg",
+          "title": "八达岭长城",
+          "price": "319"
+        },
+        {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/85/85c883189bf7293390.water.jpg_250x250_090a42b6.jpg",
+          "title": "什刹海",
+          "price": "139.9"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_250x250_63e3520a.jpg",
+          "title": "圆明园",
+          "price": "25"
+        },
+        {
+          "id": 5,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1508/fe/434ee530e21f1c11bad088e8cc8d5e93.water.jpg_250x250_12e8154c.jpg",
+          "title": "鸟巢",
+          "price": "372"
+        },
+        {
+          "id": 6,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1507/36/ce3d2d6c9ab44d67ae68d940b8781829.water.jpg_250x250_b8d94d62.jpg",
+          "title": "北京野生动物园",
+          "price": "48"
+        },
+        {
+          "id": 7,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/c7/c7788086a209ce3590.water.jpg_250x250_3bb9b090.jpg",
+          "title": "八大处公园",
+          "price": "93.01"
+        },
+        {
+          "id": 8,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_250x250_ecfa0df2.jpg",
+          "title": "水立方",
+          "price": "51"
+        },
+        {
+          "id": 9,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1604/1e/1e75f8e1af9fe81f90.img.jpg_250x250_5da8f71b.jpg",
+          "title": "世界花卉大观园",
+          "price": "145"
+        },
+        {
+          "id": 10,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1505/d2/d274c92de14c93da.water.jpg_250x250_d852635b.jpg",
+          "title": "颐和园",
+          "price": "25"
+        }
+      ],
+      "vacationList": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1603/6d/2f67ae0659f41f.jpg_r_640x214_bf6cbd0b.jpg",
+          "title": "北京赏花好地方",
+          "msg": "乱花渐欲迷人眼，京城赏花大搜索"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg",
+          "title": "京城周末撒欢",
+          "msg": "在帝都过周末，不仅仅是城中游！"
+        },
+         {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1811/7e/476589267ebb41.jpg_r_640x214_bf599709.jpg",
+          "title": "京城溜娃必去",
+          "msg": "德智体美劳全面发展的亲子日，这些地方该去看看…"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1505/aa/7baaf8a851d221.jpg_r_640x214_1431200f.jpg",
+          "title": "帝都必打卡",
+          "msg": "来北京必去的景点非这些地方莫属"
+        },
+        {
+          "id": 5,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1505/9e/21df651e19af5d.jpg_r_640x214_3ea5bb38.jpg",
+          "title": "寻找北京的皇城范儿",
+          "msg": "数百年的宫廷庙宇，至今依旧威严霸气"
+        }
+      ]
+    },
+    {
+      "city": "上海",
+      "swiperList": [
+        {
+          "id": "1",
+          "imgUrl": "/api/img/swiper1.jpg"
+        },
+        {
+          "id": 2,
+          "imgUrl": "/api/img/swiper2.jpg"
+        },
+        {
+          "id": 3,
+          "imgUrl": "/api/img/swiper3.jpg"
+        },
+        {
+          "id": 4,
+          "imgUrl": "/api/img/swiper4.jpg"
+        }
+      ],
+      "iconList": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+          "content": "景点门票"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
+          "content": "一日游"
+        },
+        {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
+          "content": "上海必游"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png",
+          "content": "动植物园"
+        },
+        {
+          "id": 5,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png",
+          "content": "城市观光"
+        },
+        {
+          "id": 6,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png",
+          "content": "踏青赏花"
+        },
+        {
+          "id": 7,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/fa/2548667cb6e902.png",
+          "content": "东方明珠"
+        },
+        {
+          "id": 8,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png",
+          "content": "野生动物园"
+        },
+        {
+          "id": 9,
+          "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/de/f26be47a6bf02a02.png",
+          "content": "上海迪士尼"
+        },
+        {
+          "id": 10,
+          "imgUrl": "https://img1.qunarzz.com/piao/fusion/1810/50/26ffa31b56646402.png",
+          "content": "上海海昌"
+        }
+      ],
+      "likeList": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg",
+          "title": "上海迪士尼乐园",
+          "commont": "12345",
+          "price": "274",
+          "location": "浦东新区",
+          "feature": "全球最大的迪士尼城堡"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/17/170481fb9caf500790.water.jpg_200x200_a32b9a92.jpg",
+          "title": "上海野生动物园",
+          "commont": "2222",
+          "price": "345",
+          "location": "浦东新区",
+          "feature": "会跳芭蕾的小海狮们~"
+        },
+        {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_200x200_9a7794fc.jpg",
+          "title": "上海欢乐谷",
+          "commont": "3333",
+          "price": "123",
+          "location": "松江区",
+          "feature": "敢上1200米长的木质过山车吗？"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1803/c4/c42248b5b4bb1258a3.water.jpg_200x200_a01b4769.jpg",
+          "title": "顾村公园",
+          "commont": "4444",
+          "price": "274",
+          "location": "宝山区",
+          "feature": "一轴、一带、三区、七园"
+        },
+        {
+          "id": 5,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/8b/8b12625615da783c90.water.jpg_200x200_e4e7cadb.jpg",
+          "title": "上海海湾国家森林公园",
+          "commont": "5555",
+          "price": "212",
+          "location": "奉贤区"
+          
+        }
+      ],
+      "hotSales": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg",
+          "title": "上海迪士尼乐园",
+          "price": "679"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_250x250_963fe222.jpg",
+          "title": "上海欢乐谷",
+          "price": "159.6"
+        },
+        {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/17/170481fb9caf500790.water.jpg_250x250_8c54e203.jpg",
+          "title": "上海野生动物园",
+          "price": "139.9"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/8b/8b12625615da783c90.water.jpg_250x250_fdcd722f.jpg",
+          "title": "上海海湾国家森林公园",
+          "price": "25"
+        },
+        {
+          "id": 5,
+          "imgUrl": "http://img1.qunarzz.com/tuan/team2/1507/2c/83e0e0e7ae082a.jpg_250x250_87692c41.jpg",
+          "title": "东方明珠",
+          "price": "372"
+        },
+        {
+          "id": 6,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1704/c9/c936f3fccfc6d7eda3.img.jpg_250x250_ca7fa9d0.jpg",
+          "title": "上海杜莎夫人蜡像馆",
+          "price": "123.7"
+        },
+        {
+          "id": 7,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1903/7b/7bb9a875382d3010a3.img.jpg_250x250_a2c00938.jpg",
+          "title": "上海海昌海洋公园",
+          "price": "93.01"
+        },
+        {
+          "id": 8,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/201301/08/04d0fc5bc44b81d693835fbb.jpg_250x250_569bd7f3.jpg",
+          "title": "上海世纪公园",
+          "price": "51"
+        },
+        {
+          "id": 9,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1707/62/62981f052681ef5ba3.img.jpg_250x250_11d6ec49.jpg",
+          "title": "上海中心大厦",
+          "price": "145"
+        },
+        {
+          "id": 10,
+          "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/9b/9bf694a468dd774490.water.jpg_250x250_4c832079.jpg",
+          "title": "上海动物园",
+          "price": "25"
+        }
+      ],
+      "vacationList": [
+        {
+          "id": 1,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1505/7d/df6ff468331c43.jpg_r_640x214_1f3783d0.jpg",
+          "title": "上海必打卡",
+          "msg": "中西合璧，现代和传统各有各的精彩"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1603/cf/762cb38938a093.jpg_r_640x214_e02c18ef.jpg",
+          "title": "上海看花",
+          "msg": "这个好天气，一起去看花吧"
+        },
+         {
+          "id": 3,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1603/ad/69b0fc5f48ad5f.jpg_r_640x214_b0fd5c7b.jpg",
+          "title": "周末亲子爱玩",
+          "msg": "走进自然或玩转乐园，感知大千世界，游乐项目惊险刺激，特色表演异彩纷呈，等你们~"
+        },
+        {
+          "id": 4,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1511/1d/fe098e8cfec117.jpg_r_640x214_a9be292a.jpg",
+          "title": "上海城市观光",
+          "msg": "来这里寻找你所不认识的魔都 ，感受云端漫步，品味老上海风情，享受休闲时光"
+        },
+        {
+          "id": 5,
+          "imgUrl": "http://img1.qunarzz.com/sight/source/1505/7b/2a6b0ce087f0e5.jpg_r_640x214_5c76b115.jpg",
+          "title": "情迷博物馆",
+          "msg": "走进艺术殿堂，电影博物馆生动演绎着电影人和电影背后的故事，你不想知道吗~"
+        }
+      ]
+    }
+  ]
+}

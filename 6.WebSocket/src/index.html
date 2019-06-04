@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebSocket初窥</title>
+</head>
+<body>
+    <h1>WebSocket</h1>
+    <script>
+
+        // 首先new一个websocket实例
+        // 这里我们要去连接ws协议
+        // 这里对应的端口就是服务端设置的端口号9999
+        let ws = new WebSocket('ws://localhost:9999')
+        // openen 是客服端与服务器建立连接后触发
+        ws.onopen = function () {
+            ws.send('哎哟, 不错哦')
+            alert("数据发送中...")
+        }
+
+        // onmessage是当服务器给客户端发来消息的时候触发
+        ws.onmessage = function (res) {
+            console.log(res) // 打印的是MessageEvent对象
+            // 真正的消息数是 res.data
+            console.log('res.data: ', res.data)
+        }
+    
+    </script>
+</body>
+</html>

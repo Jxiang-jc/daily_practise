@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1.this的指向</title>
+</head>
+
+<body>
+    <button id="button">🐱 🐾</button>
+    <script>
+        // 在全局作用域中, this指向全局对象(window)
+        console.info('全局作用域:', this)
+    </script>
+
+    <script>
+        class MeowComponent {
+            constructor () {
+                this.paw = document.getElementById('button')
+            }
+
+            meow () {
+                console.log('🐱 on this: ', this.paw)
+            }
+        }
+
+        const cat = new MeowComponent()
+        cat.paw.addEventListener('click', cat.meow) // 打印undefined, 因为这里的this指向button,而不是MeowComponent.
+
+        // 如果要修复这个行为, 我们可利用Function.prototype.bind()方法将this显示绑定到cat实例,
+        cat.paw.addEventListener('click', cat.meow.bind(cat))
+
+        // 除此以外, 大多数情况下都可以使用箭头函数来获得相同的效果
+        cat.paw.addEventListener('click', () => { cat.meow() })
+
+        // 但又两种情况需要使用显示绑定
+        // 1.使用this调用已知函数的以提供上下文
+        /* obj 对象没有扩展 Object.prototype，但我们需要使用 Object.prototype 的 hasOwnProperty 方法检查 obj 是否含有 x 属性。为了实现这一点，我们必须调用 call 方法，并将 obj 作为第一个参数显式地传给它，但通常我们似乎不会这么做。 */
+        let hasOwnProp = Object.prototype.hasOwnProperty
+        let obj = Object.create(null)
+
+        obj.hasOwnProperty('x') // obj.hasOwnProperty is not a function
+        
+        hasOwnProp.call(obj, 'x') // false
+        
+        obj.x = 100
+
+        hasOwnProp.call(obj, 'x') // true
+        
+        // 2. 提取方法 当我们需要从对象（如上面的 MeowComponent）中提取方法时，就会遇到第二种情况：
+        cat.paw.addEventListener('click', cat.meow.bind(cat))
+    </script>
+</body>
+
+</html>

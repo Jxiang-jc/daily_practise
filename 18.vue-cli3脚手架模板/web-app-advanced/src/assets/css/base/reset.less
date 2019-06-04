@@ -1,0 +1,151 @@
+@import "./variable";
+/*浏览器默认样式清清除或者设置*/
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+a img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    // .setTapColor();
+}
+
+ol, ul {
+    list-style: none;
+}
+
+iframe {
+    border: 0;
+}
+
+/* IOS，input出现阴影 */
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="number"],
+input[type="password"],
+input,
+textarea {
+  -webkit-appearance: none !important; /* 清楚ios阴影 */
+  -moz-appearance: none !important; /* mobile firefox too! */
+  -webkit-tap-highlight-color: rgba(255,0,0, 0);
+}
+/* input为number时，在机子上显示上下箭头，去掉*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+  -webkit-appearance: none !important;
+}
+
+img {
+  pointer-events: none;
+}
+div, span, p, i, em, img {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+
+.router-view {
+  display: flex;
+  flex-direction: column;
+  box-sizing: content-box;
+}
+/*vux UI 框架复写*/
+.weui-cells_checkbox .weui-check:checked + .vux-checklist-icon-checked:before {
+  color: #3DA5FE;
+}
+.weui-cells {
+  margin-top: 0;
+  .vux-cell-box + .weui-cell {
+    padding: .1rem .15rem;
+    min-height: .5rem;
+    box-sizing: border-box;
+  }
+  .weui-cell {
+    color: #000;
+    padding: .14rem .15rem;
+    .my-cell {
+      color: #000;
+    }
+    .my-title {
+      color: #666;
+    }
+    &.weui-cell_switch {
+      padding-top: .06rem;
+      padding-bottom: .06rem;
+      .weui-cell__ft {
+        display: flex;
+        align-items: center;
+      }
+      .weui-label {
+        font-size: .16rem;
+        //color: #000;
+      }
+    }
+  }
+  .vux-label,
+  .weui-label,
+  .vux-datetime,
+  .vux-datetime p,
+  .weui-cell__ft {
+    font-family: PingFangSC-Regular;
+    font-size: .16rem;
+    color: #666;
+  }
+  .weui-textarea {
+    font-family: PingFangSC-Regular;
+    font-size: .16rem;
+    color: #000;
+  }
+  .vux-cell-value,
+  .weui-input {
+    color: #000;
+  }
+  .weui-cell__ft {
+    color: #666;
+  }
+}
+
+// 定位相关样式
+.icon-map-marker {
+  width: 26px;
+  height: 32px;
+  color: #fff;
+  text-align: center;
+  line-height: 26px;
+  font-size: 14px;
+  background-image: url("../../img/icon_point.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 34px;
+}
+.icon-location-marker {
+  width: 26px;
+  height: 32px;
+  color: #fff;
+  text-align: center;
+  background-image: url("../../img/icon_marker.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 34px;
+}
+.amap-marker-label{
+  border: none !important;
+  padding: 5px !important;
+  border-radius: 5px !important;
+}

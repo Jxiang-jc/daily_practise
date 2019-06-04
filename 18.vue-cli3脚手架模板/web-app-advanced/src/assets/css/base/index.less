@@ -1,0 +1,167 @@
+@import "./variable";
+
+/*主题样式定义*/
+.bg-white {
+  background: #fff !important;
+}
+
+// 主题颜色 背景  字体
+.theme-filed {
+  background-color: @theme-color;
+  color: @theme-font-color;
+}
+
+// 主题按钮  背景 字体  激活背景  激活字体
+.theme-button {
+  background-color: @theme-bbg-color;
+  color: @theme-bfont-color;
+  &:active{
+    background-color: @theme-babg-color;
+    color: @theme-bafont-color;
+  }
+}
+
+//  主题无内容 背景
+.theme-bg {
+  background-color: @theme-bg-color;
+}
+
+// 主题内容背景
+.theme-cbg {
+  background-color: @theme-cbg-color;
+}
+
+// 主题标题字体颜色
+.theme-tfont {
+  color: @theme-tfont-color;
+}
+
+// 主题正文字体颜色
+.theme-cfont {
+  color: @theme-cfont-color;
+}
+
+.theme-bborder {
+   border: 1px solid @theme-bborder-color;
+}
+
+.theme-border(director) when (director){
+  border-@{director}: 1px solid @theme-border-color;
+}
+
+
+
+/*布局样式定义*/
+.content {
+  flex: 1;
+  overflow: auto;
+  flex-direction: column;
+}
+
+.break-line {
+  white-space: initial !important;
+  word-break: break-all;
+}
+.bounce {
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+// 不换行，超长 ... 。注意设置 title 属性
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+  // vertical-align: bottom;
+  // display: block;
+}
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.col {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: block;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  display: -webkit-flex;
+  &.flex-center {
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+  }
+  &.flex-column {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
+  &.flex-row {
+    flex-direction: row;
+    -webkit-flex-direction: row;
+  }
+  .flex-1 {
+    flex: 1;
+    -webkit-flex: 1;
+  }
+  &.flex-wrap {
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+  }
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+
+/*栅格布局*/
+.mx-row{
+  content: "";
+  display: flex;
+  margin-top: 20px;
+  .mx-col {
+    border-right: 1px solid #24396A;
+    &.mx-col-4 {
+      content: "";
+      flex: 4;
+      -webkit-flex: 4;
+    }
+    &.mx-col-6 {
+      content: "";
+      flex: 6;
+      -webkit-flex: 6;
+    }
+    &.mx-col-8 {
+      flex: 8;
+      -webkit-flex: 8;
+    }
+    &.mx-col-9 {
+      flex: 9;
+      -webkit-flex: 9;
+    }
+    &:last-child {
+      border: 0;
+    }
+  }
+}
+
+#app {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  .theme-cfont;
+  .theme-bg;
+}
