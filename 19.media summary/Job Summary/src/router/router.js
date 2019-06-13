@@ -68,6 +68,11 @@ export default new Router({
 			path: '/imgUpload', // 搜索页
 			name: 'imgUpload',
 			component: () => import('../views/ImgUpload')
-		}
+    },
+    {
+      path: '/filterBar', // 筛选功能
+      name: 'filterBar',
+      component: () => import('../views/FilterBar')
+    }
   ]
 })

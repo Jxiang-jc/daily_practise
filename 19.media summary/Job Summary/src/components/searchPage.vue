@@ -1,3 +1,4 @@
+// 搜索功能的组件
 <template>
   <div class="search-page" :class="{'show': isShow}">
     <div class="search-page-header bd-bottom" :class="{'not-ios': !isIOS, 'opacity': !isShow}">
