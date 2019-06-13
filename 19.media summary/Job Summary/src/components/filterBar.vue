@@ -32,6 +32,15 @@
 </template>
 
 <script>
+/* 
+    使用
+    <filter-bar
+        ref="filter"
+        @orderTypeChange="orderTypeChange"
+        @showFilter="showFilter=true"
+    ></filter-bar>
+
+*/
 export default {
     name: 'filterBar',
     props: {},
@@ -61,8 +70,6 @@ export default {
     },
     methods: {
         showKind (key) {
-            console.log("TCL: showKind -> key", key)
-            console.log("TCL: showKind -> this.kind", this.kind)
             let kind = key
             if (this.kind === key && this.show) {
                 
@@ -74,13 +81,11 @@ export default {
             }
         },
         hide () {
-            console.log(1111)
             this.show = false
         },
 
         // 选择处理事件
         orderSelect (item, ids, index) {
-            console.log("TCL: orderSelect -> item", item)
             // 本身已经选中
             if (item.active) {
                 this.$emit('orderTypeChange', item)
