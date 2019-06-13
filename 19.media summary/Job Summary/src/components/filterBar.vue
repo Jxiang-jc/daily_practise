@@ -111,10 +111,7 @@ export default {
             this.hide()
         }
     },
-    watch: {
-        // 如果需要通过props传typeList的值进来。可以使用监听
-    }
-
+    watch: {} // 如果需要通过props传typeList的值进来。可以使用监听
 }
 </script>
 
@@ -199,4 +196,15 @@ export default {
         }
     }
 }
+
+.slide-enter,.slide-leave-to{
+    opacity:  0;/*透明度*/
+    transform: translateY(-50px);
+}
+    /*入场(离场)动画的时间段   */
+.slide-enter-active,.slide-leave-active{
+    transition: all 0.3s ease;
+
+}
+
 </style>
