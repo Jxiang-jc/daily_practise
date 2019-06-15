@@ -1,0 +1,201 @@
+<template>
+    <transition name="fade">
+        <div class="container" v-show="show">
+            <div
+                v-for="page in pages"
+                :key="page"
+                ref="pageContainer"
+                :style="{
+                  borderBottom: '1px solid #DFDFDF',
+                  height: pageHeight + 'px'
+                }"
+            >
+                <canvas v-if="renderList.includes(page)"></canvas>
+            </div>
+        </div>
+    </transition>
+</template>
+
+<script>
+/* 
+ * 使用
+   <pdf-preview :url="url" :show="show"></pdf-preview>
+   加载过程需要事件，最好加loading
+*/
+import pdfJS from "pdfjs-dist";
+
+export default {
+    props: {
+        url: {
+            type: String,
+            required: true
+        },
+        manualRender: {
+            type: Boolean,
+            default: false
+        },
+        renderPages: {
+            // 前后各预渲染多少页
+            type: Number,
+            default: 5
+        },
+        showPageLine: {
+            type: Boolean,
+            default: true
+        },
+        show: {
+          type: Boolean,
+          default: false
+        }
+    },
+    data() {
+        return {
+            pdfDoc: null,
+            pages: 0,
+            currentPage: 0,
+            pageHeight: 0,
+            renderList: [], // 渲染的页码数组
+            timerIndex: 0
+        };
+    },
+    watch: {
+        url() {
+            this.getPDFFile();
+        }
+    },
+    created() {
+        this.getPDFFile();
+        if (!this.manualRender) {
+            document.addEventListener("scroll", this.documentScroll);
+        }
+    },
+    beforeDestroy() {
+        document.removeEventListener("scroll", this.documentScroll);
+        this.timerIndex && clearTimeout(this.timerIndex);
+    },
+    methods: {
+        getPDFFile() {
+            if (!this.url) return;
+            pdfJS.getDocument({
+                url: this.url,
+                cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.943/cmaps/', // 解决pdf是发票时，显示不全的bug
+                cMapPacked: true // 同上
+            }).then(pdf => {
+                this.pdfDoc = pdf;
+                this.pages = this.pdfDoc.numPages;
+                this.$nextTick(() => {
+                    this.pages && this.scrollToPage(1);
+                });
+            });
+        },
+        scrollToPage(pageNo) {
+            if (this.currentPage === pageNo) return;
+            this.currentPage = pageNo;
+            // list数组中包括了当前pageNo前后各this.renderPages的页数
+            // 比如 传1进来 1 - 5 = -4；-4 <= 1 + 5; page++
+            let list = [];
+            for (
+                let page = pageNo - this.renderPages;
+                page <= pageNo + this.renderPages;
+                page++
+            ) {
+                list.push(page);
+            }
+            // 删除小于1的页数和大于当前pdf总页码数的数据
+            for (let idx = list.length; idx >= 0; idx--) {
+                if (list[idx] > this.pages || list[idx] < 1)
+                    list.splice(idx, 1);
+            }
+            this.$nextTick(() => {
+                this.renderList = list;
+                this.renderList.forEach(page => {
+                    this.renderPage(page);
+                });
+            });
+        },
+        renderPage(pageNo) {
+            this.pdfDoc.getPage(pageNo).then(page => {
+                // v-for index从0开始
+                let containerNode = this.$refs.pageContainer[pageNo - 1];
+
+                if (!containerNode) return;
+
+                let canvas = containerNode.querySelector("canvas");
+
+                if (!canvas || canvas.__rendered) return;
+
+                let ctx = canvas.getContext("2d");
+
+                let dpr = window.devicePixelRatio || 1;
+
+                let bsr =
+                    ctx.webkitBackingStorePixelRatio ||
+                    ctx.mozBackingStorePixelRatio ||
+                    ctx.msBackingStorePixelRatio ||
+                    ctx.oBackingStorePixelRatio ||
+                    ctx.backingStorePixelRatio ||
+                    1;
+                let ratio = dpr / bsr;
+                // 实现自适应
+                let viewport = page.getViewport(
+                    screen.availWidth / page.getViewport(1).width
+                );
+                canvas.width = viewport.width * ratio;
+                canvas.height = viewport.height * ratio;
+                canvas.style.width = viewport.width + "px";
+                canvas.style.height = viewport.height + "px";
+                this.pageHeight = viewport.height;
+                ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+                let renderCtx = {
+                    canvasContext: ctx,
+                    viewport
+                };
+                page.render(renderCtx);
+                canvas.__rendered = true;
+            });
+        },
+        documentScroll() {
+            this.checkRender();
+        },
+        checkRender() {
+            this.timerIndex && clearTimeout(this.timerIndex);
+            this.timerIndex = setTimeout(this.renderCurrent, 100);
+        },
+        renderCurrent() {
+            this.$nextTick(() => {
+                if (this.pages <= 0) return;
+                if (!this.pageHeight) return;
+                if (!this.$refs.pageContainer[0]) return;
+                let rect = this.$refs.pageContainer[0].getBoundingClientRect();
+                if (rect.top >= 0) {
+                    this.scrollToPage(1);
+                } else {
+                    let page = Math.floor(-rect.top / this.pageHeight) + 1;
+                    if (page > this.pages) page = this.pages;
+                    this.scrollToPage(page);
+                }
+            });
+        }
+    }
+};
+</script>
+
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+/* 遮罩层样式 */
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 25;
+}
+</style>

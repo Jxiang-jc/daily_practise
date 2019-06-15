@@ -16,6 +16,7 @@
     "fastclick": "^1.0.6",
     "lib-flexible": "^0.3.2",
     "moment": "^2.24.0",
+    "pdfjs-dist": "^2.0.943",
     "postcss-px2rem": "^0.3.0",
     "vue": "^2.6.6",
     "vue-countup-v2": "^3.0.1",

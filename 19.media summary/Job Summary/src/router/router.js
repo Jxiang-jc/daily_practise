@@ -73,6 +73,11 @@ export default new Router({
       path: '/filterBar', // 筛选功能
       name: 'filterBar',
       component: () => import('../views/FilterBar')
+    },
+    {
+      path: '/pdfPreview', // pdf预览
+      name: 'pdfPreview',
+      component: () => import('../views/PdfPreview')
     }
   ]
 })
