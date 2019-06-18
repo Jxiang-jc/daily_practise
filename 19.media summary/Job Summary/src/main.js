@@ -37,6 +37,25 @@ Object.keys(directives).forEach(key => {
 
 
 FastClick.attach(document.body)
+// 重写ios的fastclick focus事件，解决11.3的快速点击输入框(input、textarea)不聚焦的问题
+FastClick.prototype.focus = targetElement => {
+  var length;
+  // Issue #160: on iOS 7, some input elements (e.g. date datetime month) throw a vague TypeError on setSelectionRange. These elements don't have an integer value for the selectionStart and selectionEnd properties, but unfortunately that can't be used for detection because accessing the properties also throws a TypeError. Just check the type instead. Filed as Apple bug #15122724.
+  // https://github.com/ftlabs/fastclick/issues/548
+  if (
+      methods.isIOS() &&
+      targetElement.setSelectionRange &&
+      targetElement.type.indexOf('date') !== 0 &&
+      targetElement.type !== 'time' &&
+      targetElement.type !== 'month'
+  ) {
+      length = targetElement.value.length;
+      targetElement.focus();
+      targetElement.setSelectionRange(length, length);
+  } else {
+      targetElement.focus();
+  }
+};
 
 Vue.config.productionTip = false
 Vue.prototype.EXIF = exif;
