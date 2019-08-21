@@ -78,6 +78,11 @@ export default new Router({
       path: '/pdfPreview', // pdf预览
       name: 'pdfPreview',
       component: () => import('../views/PdfPreview')
+    },
+    {
+      path: '/ceiling', // 吸顶
+      name: 'ceiling',
+      component: () => import('../views/Ceiling')
     }
   ]
 })
