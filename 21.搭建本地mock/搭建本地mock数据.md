@@ -41,7 +41,7 @@
     - 在mongodb的bin目录（Jxiang的电脑: D:\Program Files\MongoDB\Server\4.2\bin）
     - **输入如下的命令启动mongodb服务：mongod --dbpath D:\software\MongoDB\data\db**
     - **在浏览器输入http://localhost:27017 （27017是mongodb的端口号）查看，若显示以下则表示成功：**
-    - ![mongodb起服务成功](./image/mongodb.png)
+    - ![mongodb起服务成功](https://github.com/Jxiang-jc/daily_practise/blob/7fa4571775c5ec12c029ea1232624c26e0412a00/21.%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0mock/image/mongodb.png?raw=true)
 - redis
   - `redis-server`
   - 小坑：按照网址里面安装完redis后，有一个设置密码的步骤。这里建议不要设置。或者设置完，再重新置空。因为最后跑easy-mock的时候，需要认证（会报错）。但是我不知道怎么输入密码。
