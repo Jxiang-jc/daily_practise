@@ -1,0 +1,23 @@
+{
+  "name": "vuepress-demo",
+  "version": "0.0.1",
+  "description": "vuepress demo",
+  "main": "index.js",
+  "authors": {
+    "name": "Jxiang-jc",
+    "email": "zjx1020645@163.com"
+  },
+  "repository": "/vuepress-demo",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "docs:build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.0.0",
+    "@vuepress/plugin-back-to-top": "^1.0.0",
+    "@vuepress/plugin-medium-zoom": "^1.0.0"
+  }
+}
