@@ -13,7 +13,21 @@ git init
 git add -A
 git commit -m 'deploy'
 
-# 如果发布到 https://<USERNAME>.github.io  填写你刚刚创建的仓库地址
+# 部署到 https://<USERNAME>.github.io
+# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
+ 
+
+# git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
+
+# 部署到 https://<USERNAME>.github.io/<REPO>
 git push -f https://github.com/Jxiang-jc/daily_practise.git master:gh-pages
+
+cd ../
+
+# git remote add origin https://github.com/Jxiang-jc/daily_practise.git
+
+git pull --rebase origin master
+
+git push https://github.com/Jxiang-jc/daily_practise
 
 cd -
