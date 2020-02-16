@@ -83,6 +83,11 @@ export default new Router({
       path: '/ceiling', // 吸顶
       name: 'ceiling',
       component: () => import('../views/Ceiling')
+    },
+    {
+      path: '/attrsAndListener', // 父组件与孙子间通信
+      name: 'attrsAndListener',
+      component: () => import('../views/AttrsAndListener/index')
     }
   ]
 })
